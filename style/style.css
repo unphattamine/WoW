@@ -1,0 +1,177 @@
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    display: block; 
+    margin: 0 auto; 
+    width: 150px; 
+    height: auto; 
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f2f1;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.result {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+h2 {
+    color: #323130;
+    border-bottom: 1px solid #e1dfdd;
+    padding-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+label {
+    font-weight: 600;
+    margin-top: 10px;
+    color: #605e5c;
+    font-size: 1rem;
+}
+
+input, select    {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #a19f9d;
+    border-radius: 2px;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #323130;
+    box-sizing: border-box; 
+}
+
+input:focus, select:focus {
+    border-color: #0078d4;
+    outline: none;
+    box-shadow: 0 0 0 1px #0078d4;
+}
+
+.azure-button {
+    background-color: #0078D4; 
+    color: #ffffff; 
+    border: none; 
+    border-radius: 2px; 
+    padding: 10px 20px; 
+    font-size: 14px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+/*BUTTONS*/
+.azure-button:hover {
+    background-color: #005A9E; 
+}
+
+.azure-button:active {
+    background-color: #004578; 
+}
+
+.azure-button:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.5); 
+}
+
+
+#channel, .radio {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 5px;
+}
+
+#channel label, .radio label {
+    font-weight: 600;
+    color: #605e5c;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+#channel input[type="checkbox"], .radio input[type="radio"]{
+    margin-right: 5px;
+}
+
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip img {
+    width: 10px; 
+    height: auto;
+    vertical-align: text-top;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px; /* Increased width */
+    background-color: #0078D4;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; 
+    left: 50%;
+    margin-left: -150px; 
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #0078D4 transparent transparent transparent; 
+}
+
+.message {
+    background-color: #ffebcc;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.page-break {
+    page-break-before: always;
+}
