@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Samuel Imrich 2025 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Results</title>
+    <link rel="icon" type="image/x-icon" href="https://bell-integration.com/favicon.ico">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script_results.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  </head>
+<body>
+    <div id="pdf_results" class="container">
+        <div class="image-container">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7XSAAAeHklEQVR42u1dC5QcVZlOeBoIBPERCJOp6p4myXR1IjBC0tMTGBFRVESUgK6obET2oIKGR7ruhIVBEJbDUXwgEHGNZpOZnn4kRHajohJhBTyAoryUIJAHgmsAiQFCEsns/1dVz/SjuvtW1a2eHvJ959zT3dXVt25V3/ud///v/5gwAQAAAAAAAAAAAAAAAAAAAAAAAAAAABhn6O3t3+dY49LD5nX2HZNMmKd3J8SF3YZ5NbXvUlte3sTyVELc0m2kr+uOi4vmdZpndc8WyblzFredErtgfzxNAADUEtRR/YekOpfM606kzycSWpo0zHX0uoHaNiKkYXp1Wun78pYs/7yd2nPU7rVIjYiMXk9kEsTTBgDAM5KzxSwmqFTcXEVEtNmdjESDz5XfNTpfvEDtDmqLe2abXYbRvx/+CQAAXEEkEXWknbsdKcgj4cg04fJb137eSBnmH1jVTMbNo/HvAABg2aN6jPSpRAx5W8WTIZtax4QEIQkPpDbSdlH7ZcoQn2X1FP8aAOxhOHnOJQcmE+ZCIocHGpORqCFheSWeen0I2WNPdSfMJXMTfVPxLwLAmxy8M5dKiM/Rwn9YjiD8NuFTmhISfVjHnk0Z6ct7Z1z8dvyrAPAmRDIhPkwL/cGA6pmETarecTOA3cu1beDNga6u8/bFPwwAbwLM7bzsyO64mZEjARk7lV+y8atWSv3mnu7O9PH4twFgHKM7Idh3aks4al+93UPhk7CEX8KyjPOpePr6XqN/Mv55ABhH6DHS7bSAbwtRFfPpj6X62i4tkf5tT1zMxSwAgHEAkjJOoYW7sflk43c3Ucb47q2/pGG+Qq9fwGwAgBZGMiEucfyWQpJsZG1cQjFRCg+G/7Jzb0XMIgC0GHiXzA4yVi3pBDKEK7aV+SEyMZxKmD9PzVw8DbMEAFqCrNJTqu1VIoQdPBGSnUoo3o10bQ/P7bz0SMwWABhDsONkd8K8S86mJEKQkoL6cgmfKqVX1VIMJ+Ppp3uM9LswawBgjMgqZZi/9hbaEpa6JhRLW36yQUjZ2v4C0gKAJmNurP/gcslKBMisIEMSQpGRXqjyuQriDrGhZ5aYgVkEAE2xWZ23Ly26NY3tQSJkFU80179KrQT4OAzxANAEJOPmzeEGLQftV+UuogjTPePurq7+AzCjACAkpIy+RWoT6zVW+ZK+pCuhyMcqLHIbOXc5ZhUAhCJZ9b2XFtiOYL5Jyha6QqmtmZJctY9ayjAXYXYBgELM7+w7nBbXpmCkJBTFCvr1RFflFyaTCNCTK8eOHiPdg1kGAIrgzzE0iKOo8OnQKUJS+8KWGsUfu6LpKZhpABDYbmWeK1k+K6DUJBTsDIqANi2hyFPeR59xcRNmGwAEkaw6l2i0mF6Q95Vqhge7CJigTygm00akJe0LtjuV6HsfZh0A+CUsK1OoCMmHSQXBieHuUFPXCI9So2xMZI1zEuKRZHLRJMw8APBKVgnz5PDsOEIyY2jQawsfNrMwdxalNiMWY/YBgAc43uz3B/c4FyE4X4ph/1WehaIdRj/9ydrXxItz5yxuwywEAGnpKn127cXop4CEaELIi/BBdJxFIWyPeR9pbBLi25iFACABq3agXaY95O191aW4hEIjehg2NE/2rm09s80oZiMASElXYdimgqR3EQEM7GOZ+sa/+0TKEDdgNgJAHSxYsGDvxrYrv/mk/LgpqCoiIcaQlHzb8F7kCAPMSgCoJV0Z5oneqyurJCARote6uqKqyVBcKFz6jPddjFkJADXVQXNFeBkQhIJdwXpOql78n4QCKUi1D5lrXw8bRv9+mJkAUAHeSqcF8rK32L5m23mEApeIZuXREkrOn9dpnoTZCQDV6uAXwicj+YWcDIWUvIb9jLVx3qok/QPMTgCoANfPC75YRcvssoWTyVSlD5Z028w59DFDAcBBj5Fup8W0Ta0/lWgCEYRZEkx4qCwdhvpa4uLQKT6IWQoARXUwLv5VjQFZdbYEIeHdXp7xgJ0u6djfHHvcP71XlG4FH67KrKTiRsxSACiqg4ZYGdwJVEimmhGqd9OeoWPf606IT/fMNruOn3NZZG6ibypLjfQ6h8j4jFQ8fX1t7/2w/akUqKoJ8xHsFgLABA507j+AFsufw7ETiQDnNVrE4pFkom9h71H9h8jcJy/4ZEJ8uNtI3+l9RzKoIT+w5LljviHimK3AHo/k7PRsWhC7vIe3qEhw5zXkxmq7SOLo7zX6J/u85Ym2CmxuCe78GcZOovtzT8XNT2G2ArBfBYodVJlyWIrktiQN8wNK1OB42qD+fq8uB70fiVFedUZsIQAwYRnpr/vzElcVxyf9+xeSiSXdSm13MxdPo/t/yJukJRrY7UIpusp+aeswWwEQliHuUJOILmiWhLq/3ZmK950SjoR5aUfKMJ9vjjtGoJ3UjUSwB2HGAns6YT0RvkOn1x3DKqnmqjCfQSohPqbG7SLU57ijZ5aYgRkL7Okq4d/VxvgJ1Vv86wMY2L0Q9xpvtidZ+5sYlqs61JjYU4nFqKoD7OmEZb7RvFAVP5k4xeeb8RxSiSXvdt8t9eLUGkY20zIH0s9ixgJ7OmEpsrn4rc1Xt7/nksaiQ5v4LH7lzcakosKP/DNJGmkTMxYAYQWuGeg11lDaoL+8mc8iZfQtCi88qZHqJ5M2OQ3XBgCEVVtCEgp9snwVJ/18M59FT1zMdeIRFWwqiDBU7FsxY4E9nLBESLYqU9LeU1uam2eIVDOfxXGzxNu6jb4t4bo3yBTcqPGbhLkCMxaAhNUyrYy4tifjZqyZz6JX738LXX+zmh3SIJ7xNftZgxkLQMJSVsxBaY70l8agAvJEum6aiPJmTunSUi0hbkkmzIWYsQAkLGUZO1UWZTBfRTFRAABqEJYISFhi2FtMokRe9/ji4/APAQDgw4YlJB0mVUpgfefgHwIAwKOEFbS6s+9QH2zjAwAgI2H5UQOD1uKr6msDMhQAAFBKWLu9+wSJYfUplGv1l/4E/iUAAIqEtVWdW0Io5esf7Oo6b1/8UwAATBgtQCF82qlEgyycQesCcgyduQj/FAAATFh3eqj714yyXW5l619JxpfAxQEA9nSwF7V3CUo2rYzSwN8N8xKLO/GPAcAeDA73CBb3JxSkW5H7PhkXT8/r7DsG/xoA7KHgasn+s4768Wr3U9a+9FxO6dzctDMAALSKSjhz8UFckUXOtUH4DIr2W0S19jmphPnzpJF+P93CRPyLALAHgQggr96AHlQVlAn5sQjtgZQhLk/OFiccn1gyfW6s/+AFCxbs7fdZGIYxWdf1Q6LR6JQgLRaLHUx97TdeCbWtrW1Se3v7W2XulZ/XzJkzDyq51734/mWfFf8eqxCQJ6xE+vyQaumFVO+wJjFutbzjDXGtz0cxMarrP+5o1zd1aPoGq+lO0yTb6LnPUHusQ9MeoPZzOr6U+r2QFuixvKBbfU7EdP1KGvfmxvcb4deN0Xb9LiY5/i0R0GH2vesbpZ4ZPW+sQkDejjVLzKCF/no42UbNJhVqKPHbSvRlfROWpj9Ei2jYV9NdPlcf280kFtMi57YyccU0/SaP979x2rRpB/BvZ7S1HUGft9d9LhXPCKsQ8LRQU4b5a7mCp0JRQQqhMA9XRfOfSngiLZ77RxdSZNg3ebkt1Oq2tqOj452tOCGIVL8tRcgjn7Uni4Q1c/r0afTd1prPxOW5YAkC3tTCuHmxevtTPUO6UJHNwZ3YVBCWLBHpUsRUr6+7iwu9pQlLb0TEFYSlOYQl83wgYQGe1cLZZpSzfPrLjyU8GM7FcPCSWe5klVRFWF5JSA8mgUV13Wx5wmp4r3UIS+JZYAUC3qUsw7xNrR+Wl8o5ppK4QyUqoSwBscqoK1ETn5ozdeqBLUtYusx91CAsSekUqw/wLmUZ6VO9ZwwVCh1JheS5TbBhyZKPrkb6ikyPzG85wnJTA3VJwiq1YemQsIAQYJe5Mh9VK115UQP9hPmI8IzucoT1O2pr6POd1J6Vl0iqpI0Lx4VKqHlUCTWohECYauGIT5YYVltRxwxgkBeSElhIEpab6ud8jun6acUft7W1HcruCl4Xq2PH+oaXgTIp0LVPiGna56j10Xiu62jXb7Eavedj1nd0jqZph4dCWHrpbmoDwmpgtMfKA/xJWUb/ZFr064NLQ6ptXR6KXoSpEurlizXWHjmjarHr+ll0zhtlhNdg8ROx3NRocOw9zoRI595B13hB3n6mbYm26z+LatpCxyMdEhbwpjK+f0GpX1RgdVI03w9Lk3ICZcJaUEX6vb37xDT9jx6N8TfXJav2yJl03p+C7lryuLgvz4Slg7CAFkVXV/8BtPD/GLxAhR+nUe9EmKzaJRRqCEtvvGDdCMte8JH/9khY19UkD1b3akh4ft0pYu36tb4lLFf1GG4NwBgileg7M5wyXiKAQV3SC1+VhCWx2GoRlqW2uamDNYiG+vl0jX6ulDTae/cLi0SurktYnkgREhYwpujfiwjgp34qNqvzYPe5ixiWSujy3o2w2E40smMo5yG/PTZ9ekdlP9H26En03e5AoUF6Q9vZ+6UlLF0RYcHoDoSB+YaIEwls859Zwa8RXgST3JTvEtYlhY+6SEXX1o+7q5K8ClV2sAm9+9Dx+xqSj5sE5yGsiIO9Y7HY/oGM7roXx9EIQnOAUA3waXXFU2WJym9Ij9kcCavcHeF8WvBt0Wh0Brs4MPl4jMHbFmtvN6pILxI52bsDqvZIhxZ5kN7/U0rSKrpmTI98RLlKqEuohPB0B9Qb4M/blwjgLn+hM8KHlKSAAJu1S+ioc9Repvaap107+9jrUU37uKvtStP/04MT6ut07LNOwsC9iTxOpGPPNZawRqSdgUASVi2VUJcPY8JKA5QhOVvMIiJ50b+qJzx6xAeswBOWH5auLsUMEdLvmVjcBsELnwlAtj9WQavsX0SEZfYvvc542vVNnGlV2oal+yAsGN2B5u4ammcFc20Qw+ElCAwjNCfSYIF6CLux22tOBs617MBZL6UMq4h03k5JstxB58er+ojF9qffrJcc7xsxTTvGl9FdD2B010FYQJikZYhrve/6iRBSKjewcYUpYekNjfC1vruvoz1ywUxNizQaBBvyPUhxz7Aa6L7T59jTJMYba4+c7UpYcGsAxi/690oaohBeuE2QRIFibLI1eDeMb+NAaZKyPjWhRoGKDi3yJS+piSORyHxqx1U2UvV+Ku1Ppml9NSUsHYQFjFsjfHoKkcI9/rMy+Cm0Ksbe6K75lqzqbe3/pKOjY7oLYV0dKDWz1Hgq3Qu07yg3unsgdawsIDTMTfRNJWJ4OLjhXSiuyBMCYTVwSyDJ5KIjI5Hj2QEzqutf4eoxHr3QH60kraoCELqCDYCGfWjLPRGWnwR+2CUExgrHz7kskjTMx4JVcfYTsiPx+zD9sKoXareLhHSZR4noJxNKKuiQKvdD6YwR8vm26n5PKmquLmHpAd0aoBICYw0nD/yjtR08hQejuUIpq5lFKGq4JhBp/cJTTGKJ86Y0YWmS3u/1xjB6fHUoKqGkNz5WE9AUzO/sO5wI4r7gAdF+S4kJ9TndvS1UV8KKaZEveqy+s8aVsBq7Vuy2HEdtB9bX/TVtF6mhP3AlLF2XdO8IkK0BoTlAkyWttxJRrFFWRELK3iVqZyRVkV5Gl3aYdCUsUrE+5JH4NhdLtke1yHc9/HYD+1CxLxb7b9VuMadVfxeJROYwyYQmYUkQF1YR0FT09vbvkzLSN6jZJRTBwnxU5cOSshnVkLDaI6d6NFrvirZFZzvq5Nc8VJJePyGECtJVRSj8huYgHxbQykgm+hYSaWz1X2+wRWMJPauE2kXed+xsAz47mHpQJdeHUYi1odHdyy4hquYArYxuo+8oIo571RSvEM0v86V7SYhXy+hekhpG0h4VbY/2OGRxugeye7aoSrpIeWdSX1+NtutXWE13Xive0zlXVabJqfJ0D7JL2NjgD8ICxljSSi6aRORxNbUdQSs6ezsuwkmRXEMti+n6vNIOuCAqV8BpvDtXvZMXnR491iKL6R2JqljC2m3HkZrWWUVWHEvYrm+qKyGVEYp2vXIbVvEe9cYSGlYM0CIq4pJuIpK7g6U+bhG3Br2ytJW1UK9ilwQ6dg4vejr2mGcHT/ucfxTjDNva2ibVzNbgnjX0yioJzxqPF7cI7XTlNizsEgLjEQsWLNjbrncoNgazWQm5ohbNsGGVSki6kjCaR518VjZhyPhi6UWnT/0VrkEYjUansITH5BPT9Bc9uFW8FIlEpiqXsDx44GOVAC2H+UeLd6SM9OVEKn+TcVdIxn1mdlBtw2pKyfryWL6qjKMyfZMKSOT1tHciLQ/LqZKwdBeC9hSaE4ENCxi/mDtncVt33LyCyGVT8HTKIRah0FVkZ6hfiNU5vpMknHeVDqSrq2tfzzuWusfrF/NpadrRroTliahlc7q7Ex5WBdDycBxOzxvdUfQSIC1qZypV7YeliqBqZEuIapGvuw3GqZozrKTp8vavUFVCHSohMP4xcZ4hUknD/AYRzvrA5cKUZBwNKbWLXvU65Fa1poQ4vqo0a0PFtSfUTP6nyOiuIb0M8CaGU3X6RCKi65wYxa1y6uEYlfnyT2Svskc7l7VvNChn99E9qNmPJKhbOeVvKjXyhyZh6XAcBfYgzJtl6t3x9GnJRN81JIGtJWJ6ktrWBruMed+EVemW0GiXUDbVi924/NafYu36DdGoHYYji6iuf5J/K+WmoNf19/pDLBI5Q4Ikv+eRFJ/nHUprw+CIWFttfy8QFrAH4eQ5lxzIJJaKi/mphPhYKm5+iUjrKieO8VZqy4jgLvDbPy3UJVEt8n16vbW8RW6tPla7cR/RSOTGDj16XbRdT7PXORu32cfK79hIdTw4pkXOpYXPqY9f8CABPUu/ydIYzpC9PhOkXWpM8l7b9WuKEht73vOup+yz4utgZgPAmxiaph3ORnkmMCKXy1mF4ywPVqYHXf8m52jnWoUcn0gkdSieGAAAAAAAAAAAAAAAAAAAANB0LF26dN9sNjt52bJlb8HTmDChv79/r9tvv/0AbsPDwxPxRACghTA4lP8itWcGhgo/wtOYMGEgn581mMk/Rc/kkcHBNdPwRACghZDJ5i+nxTk8MJS/028fJKHFqZ+HM0P5/6H3k8bNvQ/lvk1jfpju/czisZXZ7FH8PLitLBQ0zBAAaC3CWmIt0Gz+Z777yBSOtRd57i/Lly8/cPwQVv6nFllnciOOt4ODq3UmXmp5It93YIYAQEsRVjYwYY1IJaRKjSdbGBHsGoew/g0zAQDGKWGRZLE3G+LZ8Myf2RBNUtQ8Up0+PjiYm0/f7Vc8j88ZyGZ7HDXqaZZK+Lfr1q0bCXJmEqPf9fLv6dzk2rVr968nrdnXyc8tGc/kUiM4bxSsWLHi4FJypHOOYOmo5PNhdM33OmN+749WrXpb6XhYEmRJisdNUuaXuX9WZxsZ3S0bV7bwkUwmd9rAQN5wuwenr8klY5lJ4/go/eYUSG0AoFglJLI4mg3xJIHk7AWa/03RruO0+y3VKbO6wznvr3QOH99FbTOrhkW7EBMPHfs9HRv5fWao8CBJZV2l42CCKRLISMvmbyOy6R7M5NYPDhV+VSRQWvifIWluAx27wiKmodwqOn8btceZcOjzJfTdSxVj3kRj+qQtWeVv5jHS62vOdy/yuOn6P16Zzx9pXS9LYx4cHDG6/1ehcDhdM0Pn/bOkz930m9Wlti4mPbYHsrTJ90j93FQxjmcHs9kzMPMAwDdh5coIa2iokHIW19/o+HP0+mdq19sLnYmBz8/dxpKDTRz5F5zz37DIayj/PEkhp69cufKtNoFZ5FMgEvkavf7OOffP/P2IBDeUtaWdofzfbWN44Rb6vJPak8WFXrSPDWQKX7E3CgqDTGTO91vp2nfQdc9yNhH+QWMjsshdZRGIfc52JtmBTP6b9J7va/vIuUxg2fztmcyqhDPeHXR/7UWJia5zb9FOR6/foj6+bpM1jzn3EJ07ZfRc557t3cbX6PX7dM519LreGcfLmHkAoIiwWG0blYbyq0sN6bS4zy4ucl7QlkQxohLmtvCxUWLJX+n0c32JBDKFJSGbFArn2Ndb9b4i6ZBUclzJOE60SdAmuBLCumCUaIgss4V/YQmI1TCbGGncudynyuxV2fw6p59FrFKOqoS5YVaL+T5YVVyRzc4e6XvwtunOMzrf+e1mOi8yKomumVYkVDrHLCGsJ0ekOpJQR89frRPxbeHvMPMAQJFKWEJY22mBxspsOANrptLxV1kdKtpwRl0BCluKUhPbsGjR/4mlJFazysiDpB6nfyvNCkkeS0s/VxBNoRZhWUSRyZ1Wdj8WCRVeYleLimte45DqNaN9O0b3odzFxWOlhLWiUGizf1v4X9s4n7/S5fl92RnLb1lStOx1DmENZHLnVt3PUO6XICwACEPCIpWm0q+KPh/q2Id2F0nBstXYEtOWgYGBt1t9sO3Llo4280IuJ6HCOQ5J/sImmcKDDkmcXT2+wnnFsbgQ1uNs+K8YHxv9j2ApqpwoLJWWSefqEnL7sSMdXVpNWDmWIA9zJEJL5SVV+T1V48sUjnHG8grbvJioHRV6mO1vVec7djrMPABQL2E9Ubmjx7ttbGdyJayhUcKixX2S08dGUvlO5N1Fp3UzaTjXvGfNmjUHOXYhV0Kg336gFmHx4m90fw7hLHRsVixhXeWBsN6Ryaya4Rjad7HNrrJ/lsJG7HqD+aN5Z9GxXfHnd7tIjGtBWAAQBmFl8usr/apkCYtUtU9U7I4Nl+4UFvtnldPpz32B8y6hff4zo4SVKxJWzdTQDvFcb9mM7B3Mnd4IK/8P615HnGLzW4s2rcrnQf0/70hUvY6K+5StrhaOdSWsLAgLANQTVtY/YTlSzbCjPt5o78zlvsU7bHTNb2aGcjfQ60XWrp1tPN/NZFFH5XqmSiXM5guV55e4HzgEWfgV+z8NZnO3+yEsJtF6hMX3S31ahEXP7QQpwoKEBQB+CSvrU8LKNZKwFjgL/7EGKtsRvM3vLPhktUqYPaHolFopYVUSlm0/yt1RNIIXCcQmUNvAXkZY2fqEVaIS7rbUvloSlu3KUaUSgrAAYJwQluWSYKtiT1T2wYb7lUP5D/J1HDeATY4N66TqBV74kNVPqQ0r5y5hsUuEfc3cK5X2pqI0VS5hZWsQVs4iLN4R5fthexbbsUpdFEZV1tumOw6oO9nlwXJcBWEBwPiyYY3uEuZGXB2qpKZs/jfOIr7HkYo+XyVhWU6iOfddwgrCGtl9HMo/Url7aHnNZ72phCz9cT+Oewbvgn6ojo1tkxOSsx8ICwBajbCyo4Q1mC/aeXJ/LZ7PC52lK8cYPb+chHLnOv2vtIkjd4Ntb8rlXBb43TX9sLK5Qrm9yzb0M8GUEha7OIw6c+auKOnbsWvlL3QjrKIKSOctc8a7tGp8ucJ/OP2ucu57kk1YORAWALSihOXEHvLC38YxhLxbZnmdD+Uuc3y81hWT4WUyqzqLRMaByRVSyk62fbEdiKWVYq6uKsKqoRKW7Ojt5NAgh0CmZIYK3y2JY7yl2E/RKXVgqLCCx8xk5YTm7C4jrFxu/mhoT26Bk6V1b0tdtUKCrHv5KJ9rqbiQsAAgHJAa91VnMf66hLB6HBeE5ysdR+1dMTtchhc3H1u+atU7befKUbcFWsCnMmmx0b0YYOw4iO4oBjaXZnQo8XYftoOl8xut97n8gGX0zpaohEO5ix2p5icVtrH9RiWyHLs9PETv/49tTERKi0eDqgtZ596vqHC7uJdJ2C2BH+9ulpz7uJWRdNQ9Y1kxswOP0YrBtAlrXpWKO5S/C4QFAH4lrEzuwxwSwzF2o8dWd3DALoexVHqMW5JTJv8d6/uSFMLs4EmEdCv3ReTwA5a6nPPb6dgPHeJ43fYCL3ytmHnBRdp7wjrPDqpeODRUOL7SLmU7peZ4zF+s7INJxg6KtnbuOLj5fiZgm3Ry/86hMUVvd9uplMOEctaY2c2C3SJIReX7uJE3B4r9Wrt/nE46m3/A8mofyr9qZystLC4lXiZN6v9afj6lcYflNrk8Kj8DQCuD81exEdstFxZLbbyrxwufF7xj7J5kkxiH5uRGbESyWLZ69SFMPmHcC+8ecthOZcgRAAB7hh3tS5bal8lnSo87xvL7SjM7AAAAjLFamukcsW2RKsbGbE62N+IESmqYmwoJAAAwRqSV+wwR08tV8YfZ/G/YpoYnBABAi5FW4RjLYJ3LD3CdRDZyVzqdAgAAAAAAAAAAAAAAAAAAjBX+H7vdKZ3PNJtHAAAAAElFTkSuQmCC" alt="bell">
+    
+    </div>
+    <h1>Proposal for <span id="fcustomer"></span></h1>
+    <p class="result"><strong>Bell Reference:</strong> SF033203</p>
+    <p class="result"><strong>Author:</strong> John Doe</p>
+    <p class="result"><strong>Owner:</strong> Head of Service Management Office</p>
+    <p class="result"><strong>Document Date:</strong><span id="documentDate"></span></p>
+    <p class="result"><strong>Classification:</strong> COMMERCIAL IN-CONFIDENCE</p>
+    <br>
+    <p class="result"><strong>Customer:</strong><span id="fcustomer1"></p>
+    <p class="result"><strong>Name:</strong><span id="fname"></span></p>
+    <p class="result"><strong>Mail/Phone:</strong><span id="fmail"></p>
+    <h1>Summary</h1>
+    <table id="tableSummary">
+      <thead>
+        <tr class="header-row">
+          <td colspan="5">Main scope</td>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Complex UCs</td>
+          <td><span id="complexUCs"></td>
+        </tr>
+        <tr>
+          <td>Simple UCs</td>
+          <td><span id="simpleUCs"></td>
+        </tr>
+        <tr>
+          <td>Channels</td>
+          <td><span id="channels"></td>
+        </tr>
+        <tr>
+          <td>Product language</td>
+          <td><span id="productLanguage"></td>
+        </tr>
+        <tr>
+          <td>Amelia training course</td>
+          <td><span id="AmeliaTrainingCourse"></td>
+        </tr>
+        <tr>
+          <td>Notes</td>
+          <td><span id="fnotes"></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr class="header-row">
+          <td colspan="5">Delivery Team location Requirements</td>
+      </tr>
+      <tbody>
+        <tr>
+          <td>Custom Timezone requirement</td>
+          <td><span id="customTimezone"></td>
+        </tr>
+        <tr>
+          <td>Custom location requirements</td>
+          <td><span id="customLocation"></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr class="header-row">
+          <td colspan="5">Additional Timeline requirements</td>
+      </tr>
+      <tbody>
+        <tr>
+          <td>Number of Hypercare Weeks</td>
+          <td><span id="Hypercare"></td>
+        </tr>
+        <tr>
+          <td>Number of UAT Weeks</td>
+          <td><span id="UAT"></td>
+        </tr>
+        <tr>
+          <td>Enablement Support Hours</td>
+          <td><span id="Enablement"></td>
+        </tr>
+        <tr>
+          <td>GoLive approach</td>
+          <td><span id="GoLiveApproach"></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr class="header-row">
+          <td colspan="5">Integrations</td>
+      </tr>
+      <tbody>
+        <tr>
+          <td>Integrations required</td>
+          <td><span id="integrationRequirements"></td>
+        </tr>
+        <tr>
+          <td>Number of APIs</td>
+          <td><span id="APInumbers"></td>
+        </tr>
+        <tr>
+          <td>APIs and documentation available</td>
+          <td><span id="APIStartDate"></td>
+        </tr>
+        <tr>
+          <td>APIs Internet Exposed</td>
+          <td><span id="APIExposed"></td>
+        </tr>
+        <tr>
+          <td>ISC required</td>
+          <td><span id="ISCRequirements"></td>
+        </tr>
+        <tr>
+          <td>Description of APIs</td>
+          <td><span id="fAPInotes"></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr class="header-row">
+          <td colspan="5">NLU/Model requirements</td>
+      </tr>
+      <tbody>
+        <tr>
+          <td>Intent model required</td>
+          <td><span id="IntentModelRequired"></td>
+        </tr>
+        <tr>
+          <td>Expected number of intents</td>
+          <td><span id="IntentNumber"></td>
+        </tr>
+        <tr>
+          <td>Context switching required</td>
+          <td><span id="contextswitching"></td>
+        </tr>
+        <tr>
+          <td>Custom leveling required</td>
+          <td><span id="customLeveling"></td>
+        </tr>
+        <tr>
+          <td>Any complex entity recognition expected</td>
+          <td><span id="EntityRequirements"></td>
+        </tr>
+        <tr>
+          <td>Intent model training data available</td>
+          <td><span id="IntentModelTrainingData"></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr class="header-row">
+          <td colspan="5">Project Management Advanced</td>
+      </tr>
+      <tbody>
+        <tr>
+          <td>End customer governance required</td>
+          <td><span id="EndCustomerGovernanceRequired"></td>
+        </tr>
+        <tr>
+          <td>Amelia Coordination Required</td>
+          <td><span id="AmeliaCoordination"></td>
+        </tr>
+        <tr>
+      </tbody>
+      <thead>
+        <tr class="header-row">
+          <td colspan="5">Voice Advanced</td>
+      </tr>
+      <tbody>
+        <tr>
+          <td>DTMF Required</td>
+          <td><span id="DTMFRequired"></td>
+        </tr>
+        <tr>
+          <td>Barge-in Required</td>
+          <td><span id="BargeInRequired"></td>
+        </tr>
+        <tr>
+      </tbody>
+      <thead>
+        <tr class="header-row">
+          <td colspan="5">Others</td>
+      </tr>
+      <tbody>
+        <tr>
+          <td>Custom Reporting Requirements</td>
+          <td><span id="customReporting"></td>
+        </tr>
+        <tr>
+          <td>Content sharing required</td>
+          <td><span id="ContentSharingRequired"></td>
+        </tr>
+        <tr>
+          <td>Conversation Voice recording required</td>
+          <td><span id="RecordingsRequired"></td>
+        </tr>
+        <tr>
+          <td>Dynamic FAQ training</td>
+          <td><span id="DynamicFAQTraining"></td>
+        </tr>
+        <tr>
+          <td>Data information masking</td>
+          <td><span id="DataInformationMasking"></td>
+        </tr>
+        <tr>
+          <td>Demo/review additional requirements</td>
+          <td><span id="DemoRequirements"></td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+    <p>Develop Autopilot conversational AI for Purchase Exchange Redemption use-cases</p>
+    <table>
+        <thead>
+            <tr class="header-row">
+                <td colspan="5">Distribution List</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Organisation</th>
+                <th>Title</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>johndoe@company.com</td>
+                <td>Company integration</td>
+                <td>Account Director</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Susan Doe</td>
+                <td>susandoe@cimpany.com</td>
+                <td>Company integration</td>
+                <td>Technology Services Director</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <tr class="header-row">
+                <td colspan="5">Document Control</td>
+            </tr>
+            <tr>
+                <th>Version</th>
+                <th>Amendment</th>
+                <th>Section Amended</th>
+                <th>Reviewed By</th>
+                <th>Reviewed Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1.0</td>
+                <td>Initial release</td>
+                <td>All</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Quality Statement</h2>
+    <p class="justified-text">This is to certify that the attached documentation has been produced in accordance with the Bell Microsystems Ltd, trading as Bell Integration, integrated management system risk assessment process and has been approved for release. It has been written in commercial confidence and is copyright protected.</p>
+    <h1>Introduction</h1>
+    <h2>About Bell Integration</h2>
+    <p class="justified-text">Bell is a privately owned, and truly vendor independent organisation, our people are dedicated to helping our customers reduce cost and risk, while improving agility and the service our customers IT teams provide to their end user stakeholders.</p>
+    <p class="justified-text">Since our founding in 1996, we continue to grow and have over 500 staff employed at our offices in the UK (London, Portsmouth, Wokingham, Stevenage, Glasgow), across the world (Krakow, Hyderabad, Singapore) and within many of our customers’ sites.  </p>
+    <p class="justified-text">Today, our work centres on the four cornerstones of IT delivery – Transact, Transform, Run and Recycle. A full end-to-end service capability. Our business is proud to have won a plethora of awards and accolades, including listings in The Sunday Times HSBC International Track 200 and The Sunday Times Hiscox Tech Track 100, Oracle Linux EMEA Partner of the Year and ADISA Best IT asset disposal organisation award.</p>
+    <p class="justified-text">Bell is at the forefront of helping companies drive down operating costs and improve their ability to engage with their own customers, either by supporting the growth of their channels to market, or by aiding their responsiveness and service quality.</p>
+    <h2>Background</h2>
+    <p class="justified-text">NICE offers a cloud-based customer experience platform equipped with a comprehensive suite of tools for managing contact center interactions. SS&C aims to leverage Autopilot, integrated with TA2000 Server, to automate call flows based on specific use cases provided by SS&C. This proposal outlines how we will develop Autopilot to enhance customer experience through automation. Autopilot facilitates conversational AI-driven, customer intent-based routing.</p>
+    <h1>Engagement Approach</h1>
+    <h2>Scope Of Work</h2>
+    <p class="justified-text">This section outlines the scope of work for developing Autopilot self-service use cases, highlighting the following key deliverables. The scope encompasses all essential tasks and timelines necessary to meet the project objectives, ensuring alignment with the overall strategic goals and stakeholder expectations. </p>
+    <p class="justified-text">•	Developing Autopilot for <b><span id="channels"></span></b> channel,  interaction in <b><span id="productLanguage"></span></b> language(s)</p>
+    <p class="justified-text">•	Development of Autopilot API integration to provide interface with SS&C “DST’s TA2000” system
+    <p class="justified-text">•	Develop Autopilot conversational flows that includes authentication, greeting, pre-escalation and goodbye messages</p>
+    <p class="justified-text">•	Development of Autopilot conversational flows to fulfil the following Self-service use cases</p>
+    <p class="justified-text"><span id="fnotes"></span></p>
+    <!--
+    <p class="result"><strong>Company</strong> <span id="fcustomer"></span></p>
+    <p class="result"><strong>Name</strong> <span id="fname"></span></p>
+    <p class="result"><strong>Phone/Mail</strong> <span id="fmail"></span></p>
+    -->
+        <h2>Timeline</h2>
+        <p class="result"><strong>Elapsed Solutioning Timeline:</strong> <span id="solutionTimeline"></span></p>
+        <p class="result"><strong>Elapsed Development Timeline:</strong> <span id="devTimeline"></span></p>
+        <p class="result"><strong>Elapsed UAT Timeline:</strong> 3 weeks</p>
+        <p class="result"><strong>Elapsed Hypercare Timeline:</strong> 2 weeks</p>
+        <p class="justified-text">The estimated timeline for project completion is approximately <b>24 weeks</b> from the Project Kick-off date. However, the successful delivery of the project is contingent upon several critical factors. These include timely access to the domain, available of API endpoints, and effective coordination between NICE, SS&C and Amelia resources. Ensuring these elements are in place will be essential for meeting the projected timeline and achieving the desired outcomes.</p>
+        <p class="justified-text">This project will be executed in four key phases: use-case discovery, development, implementation, and testing. The timelines and costs associated with this project are derived from the following resource estimates necessary to complete each phase: </p>
+        <table>
+            <thead>
+              <tr>
+                <th>Role</th>
+                <th>Estimated Days</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Client Engagement Manager</td>
+                <td>57.575</td>
+              </tr>
+              <tr>
+                <td>Principal AI Solution Architect</td>
+                <td>62.275</td>
+              </tr>
+              <tr>
+                <td>Lead AI Cognitive Consultant</td>
+                <td>29.375</td>
+              </tr>
+              <tr>
+                <td>AI Cognitive Consultant</td>
+                <td>64.625</td>
+              </tr>
+              <tr>
+                <td>Integration Engineer</td>
+                <td>17.625</td>
+              </tr>
+              <tr>
+                <td>Intent Recognition Designer</td>
+                <td>35.25</td>
+              </tr>
+            </tbody>
+          </table>
+        <p class="justified-text">The overall project timeline and budget are contingent upon these resource allocations and the successful completion of each phase.</p>
+        <h2>Assumptions & Dependencies</h2>
+        <p>ℹ️ Barge-In not required. If required, this will be subject to the change control process.</p>
+        <p>ℹ️ Well-documented and accessible (Internet-exposed) APIs are expected. If any proxy or ISC solution is required, this will be subject to the change control process.</p>
+        <br>
+        <h2>Out Of Scope</h2>
+        <p class="justified-text">•	Any activity not detailed as ‘in scope’ within this proposal</p>
+            <p class="justified-text">    •	Amelia voice product configuration and deployment</p>
+                <p class="justified-text">•	Amelia Auto-Translation solution design and / or implementation</p>
+                    <p class="justified-text">•	Environment setup i.e. Domain creation and Amelia instance configuration changes </p>
+                        <p class="justified-text">•	Setup customer access to Autopilot platform</p>
+                            <p class="justified-text">•	SMS fallback  </p>
+                                <p class="justified-text">•	Provision of licenses or software entitlements required to provide solution functionality</p>
+                                    <p class="justified-text">•	Autopilot/Amelia Training and Enablement
+            </p>
+        <h1>Commercials</h1>
+        <p class="justified-text">All pricing is valid for 30 days and indicative subject to further due diligence and contract.</p>
+        <h2>Professional Services Payment Schedules</h2>
+        <table>
+            <thead>
+              <tr>
+                <th>Billing Milestone</th>
+                <th>Event/Phase/Deliverable</th>
+                <th>Amount Due</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>BMS1</td>
+                <td>Upon signature of SOW</td>
+                <td>$96,842.66</td>
+              </tr>
+              <tr>
+                <td>BMS2</td>
+                <td>Successful completion of project</td>
+                <td>$96,842.66</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td></td>
+                <td>$193,685.33</td>
+              </tr>
+            </tbody>
+          </table>
+        <p class="result"><strong>Total Cost:</strong> <span id="cost"></span></p>
+        <p class="result"><strong>Total Sell:</strong> <span id="sell"></span></p>
+        <p class="justified-text">The commercials stated herewith are indicative only and require further qualification and due diligence to establish exact offer pricing.</p>
+        <!--<div class="page-break"></div>-->
+
+        <h2>Additional Notes</h2>
+        <div id="customReportingMessage"></div>
+        <div id="noIntegrations"></div>
+        <br>
+        <button class="azure-button" onclick=goBack()>← Back</button>
+        <button class="azure-button" onclick=send_email()>Send as Email</button>
+        <button class="azure-button" onclick="exportHTMLToDocx()">Export DOC</button>
+        <button class="azure-button" onclick="downloadPDF()">Export PDF</button>
+    </div>
+</body>
+</html>

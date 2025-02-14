@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Samuel Imrich -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Calculation</title>
+    <link rel="icon" type="image/x-icon" href="https://bell-integration.com/favicon.ico">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js"></script>
+    <script src="input/input_values.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="img/bell.png" alt="bell">
+        </div>
+        <h2>Contact Info</h2>
+        <label for="fcustomer">Customer</label>
+        <input type="text" id="fcustomer" name="fcustomer"></input>
+
+        <label for="fname">Name</label>
+        <input type="text" id="fname" name="fname"></input>
+
+        <label for="fmail">Mail/Phone</label>
+        <input type="text" id="fmail" name="fmail"></input>
+
+        <br>
+        <br>
+        <h2>Main scope</h2>
+        <label for="complexUCs">Number of Complex UCs:
+            <span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+                <span class="tooltiptext">If more than 2 API calls, more than 5 business process steps. </span>
+            </span>
+        </label>
+        <input type="number" id="complexUCs" min="0">
+
+        <label for="simpleUCs">Number of Simple UCs:</label>
+        <input type="number" id="simpleUCs" min="0">
+        <br><br>
+        <label for="channel">Channel:</label>
+        <div id="channel" style="display: flex; gap: 10px; align-items: center;">
+            <label>
+                <input type="checkbox" name="channel" value="Voice"> Voice</label>
+            <label>
+                <input type="checkbox" name="channel" value="Chat" checked="checked"> Chat</label>
+            <label>
+                <input type="checkbox" name="channel" value="SMS"> SMS</label>
+            <label>
+                <input type="checkbox" name="channel" value="email"> Email</label>
+        </div>
+        <br>
+        <label for="productLanguage">Product Languages requirement</label>
+        <div id="productLanguage" class="radio">
+            <label>
+                <input type="radio" name="productLanguage" value="English" checked="checked">English </label>
+            <label>
+                <input type="radio" name="productLanguage" value="2"> 2 </label>
+            <label>
+                <input type="radio" name="productLanguage" value=">2"> >2</label>
+            <label>
+                <input type="radio" name="productLanguage" value="Other"> Other</label>
+        </div>
+        <br>
+        <label for="AmeliaTrainingCourse">Amelia training course</label>
+        <div id="AmeliaTrainingCourse" class="radio">
+            <label>
+                <input type="radio" name="AmeliaTrainingCourse" value="true"> yes
+            </label>
+            <label>
+                <input type="radio" name="AmeliaTrainingCourse" value="false" checked="checked"> no
+            </label>
+        </div>
+        <br>
+        <label for="fnotes">Notes</label>
+        <br>
+        <textarea id="fnotes" name="fnotes" rows="4" style="width: 100%;"></textarea>
+
+        <h2>Delivery Team location Requirements</h2>
+        <label for="customTimezone">Custom Timezone requirements<span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+            <span class="tooltiptext">Bell Standard business hours are : Mon-Fri 09:00–18:00GMT</span>
+        </span></label>
+        <div id="customTimezone"  class="radio" style="display: flex; gap: 10px; align-items: center;">
+            <label>
+                <input type="radio" name="customTimezone" value="no" checked="checked"> No</label>
+            <label>
+                <input type="radio" name="customTimezone" value="US"> US</label>
+            <label>
+                <input type="radio" name="customTimezone" value="APAC"> APAC</label>
+        </div>
+        <br>
+        <label for="customLocation">Custom location requirements</label>
+        <div id="customLocation"  class="radio" style="display: flex; gap: 10px; align-items: center;">
+            <label>
+                <input type="radio" name="customLocation" value="no" checked="checked"> No</label>
+            <label>
+                <input type="radio" name="customLocation" value="US"> US</label>
+            <label>
+                <input type="radio" name="customLocation" value="UK"> UK</label>
+            <label>
+                <input type="radio" name="customLocation" value="EU"> EU</label>
+            <label>
+                <input type="radio" name="customLocation" value="IN"> IN</label>
+        </div>
+        <br>
+        <h2>Additional Timeline requirements</h2>
+
+        <label for="Hypercare">Number of Hypercare Weeks:</label>
+        <input type="number" id="Hypercare" min="0">
+
+        <label for="UAT">Number of UAT Weeks:</label>
+        <input type="number" id="UAT" min="0">
+
+        <label for="Enablement">Enablement Support Hours:<span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+            <span class="tooltiptext">Enablement is used after Project closure for consultancy services for a default period of 3 months</span>
+        </span></label>
+        <input type="number" id="Enablement" min="0">
+        <br><br>
+        <label for="GoLiveApproach">GoLive approach</label>
+        <div id="GoLiveApproach" class="radio">
+            <label>
+                <input type="radio" name="GoLiveApproach" value="Single" checked="checked"> Single
+            </label>
+            <label>
+                <input type="radio" name="GoLiveApproach" value="Multiple"> Multiple
+            </label>
+            <label>
+                <input type="radio" name="GoLiveApproach" value="Phased"> Phased
+            </label>
+        </div>
+        <br>
+        <h2>Integrations</h2>
+        <label for="integrationRequirements">Integrations required
+            <span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+                <span class="tooltiptext">Ex. API, gateways, database, 3rd party applications, etc..</span>
+            </span>
+        </label>
+        <div id="integrationRequirements" class="radio">
+            <label>
+                <input type="radio" name="integrationRequirements" value="true" id="integrationYes"> yes
+            </label>
+            <label>
+                <input type="radio" name="integrationRequirements" value="false" id="integrationNo" checked="checked"> no
+            </label>
+        </div>
+        <br>
+        <div id="ISCRequirementsContainer" style="display: none;">
+        <label for="APInumbers">Number of APIs:</label>
+        <input type="number" id="APInumbers" min="0">
+        <br><br>
+        <label for="APIStartDate">APIs and documentation available</label>
+        <div id="APIStartDate" class="radio">
+            <label>
+                <input type="radio" name="APIStartDate" value="true" id="APIStartDateYes" checked="checked"> yes
+            </label>
+            <label>
+                <input type="radio" name="APIStartDate" value="false" id="APIStartDateNo"> no
+            </label>
+        </div>
+        <br>
+        <label for="APIExposed">APIs Internet Exposed</label>
+        <div id="APIExposed" class="radio">
+            <label>
+                <input type="radio" name="APIExposed" value="true" id="APIExposedYes" checked="checked"> yes
+            </label>
+            <label>
+                <input type="radio" name="APIExposed" value="false" id="APIExposedNo"> no
+            </label>
+        </div>
+            <br>
+            <label for="ISCRequirements">ISC required
+                <span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+                    <span class="tooltiptext">Integration services client required for access that's not reachable from public internet</span>
+                </span>
+            </label>
+            <div id="ISCRequirements" class="radio">
+                <label>
+                    <input type="radio" name="ISCRequirements" value="true"> yes
+                </label>
+                <label>
+                    <input type="radio" name="ISCRequirements" value="false"  checked="checked"> no
+                </label>
+            </div>
+            <br>
+            <label for="fAPInotes">Description of APIs:</label>
+        <br>
+        <textarea id="fAPInotes" name="fAPInotes" rows="4" style="width: 100%;"></textarea>
+        </div>
+        
+        <h2>NLU/Model requirements</h2>
+        <label for="IntentModelRequired">Intent model required</label>
+        <div id="IntentModelRequired" class="radio">
+            <label>
+                <input type="radio" name="IntentModelRequired" value="true" checked="checked"> yes</label>
+            <label>
+                <input type="radio" name="IntentModelRequired" value="false"> no</label>
+        </div>
+        <br>
+        <label for="IntentNumber">Expected number of intents:</label>
+        <input type="number" id="IntentNumber" min="0">
+        <br><br>
+        <label for="contextswitching">Context switching required
+            <span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+                <span class="tooltiptext">If set to yes, allow Amelia to switch intents, domains or dialog acts</span>
+            </span>
+        </label>
+        <div id="contextswitching" class="radio">
+            <label>
+                <input type="radio" name="contextswitching" value="true" checked="checked"> yes</label>
+            <label>
+                <input type="radio" name="contextswitching" value="false"> no</label>
+        </div>
+        <br>
+        <label for="customLeveling">Custom leveling required
+            <span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+                <span class="tooltiptext"> Leveling messages based on client API or custom Tabular data</span>
+            </span>
+        </label>
+        <div id="customLeveling" class="radio">
+            <label>
+                <input type="radio" name="customLeveling" value="true"> yes</label>
+            <label>
+                <input type="radio" name="customLeveling" value="false" checked="checked"> no</label>
+        </div>
+        <br>
+        <label for="EntityRequirements">Any complex entity recognition expected
+            <span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+                <span class="tooltiptext">Ex. Pension plans, Hotel Names etc..</span>
+            </span>
+        </label>
+        <div id="EntityRequirements" class="radio">
+            <label>
+                <input type="radio" name="EntityRequirements" value="true" checked="checked"> yes</label>
+            <label>
+                <input type="radio" name="EntityRequirements" value="false"> no</label>
+        </div>
+        <br>
+        <label for="IntentModelTrainingData">Intent model training data available</label>
+        <div id="IntentModelTrainingData" class="radio">
+            <label>
+                <input type="radio" name="IntentModelTrainingData" value="true" checked="checked"> yes</label>
+            <label>
+                <input type="radio" name="IntentModelTrainingData" value="false"> no</label>
+        </div>
+        <br>     
+        <h2>Project Management Advanced</h2>
+        <label for="EndCustomerGovernanceRequired">End customer governance required
+            <span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+                <span class="tooltiptext">Client facing RAID, weekly Highlight reports etc..</span>
+            </span>
+        </label>
+        <div id="EndCustomerGovernanceRequired" class="radio">
+            <label>
+                <input type="radio" name="EndCustomerGovernanceRequired" value="true" > yes</label>
+            <label>
+                <input type="radio" name="EndCustomerGovernanceRequired" value="false" checked="checked"> no</label>
+        </div>
+        <br>  
+        <label for="AmeliaCoordination">Amelia Coordination Required
+            <span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+                <span class="tooltiptext">Access management support, TAC coordination, Voice setup</span>
+            </span>
+        </label>
+        <div id="AmeliaCoordination" class="radio">
+            <label>
+                <input type="radio" name="AmeliaCoordination" value="true" checked="checked"> yes</label>
+            <label>
+                <input type="radio" name="AmeliaCoordination" value="false"> no</label>
+        </div>
+        <h2>Voice Advanced</h2>
+        <label for="DTMF Required">DTMF Required</label>
+        <div id="DTMFRequired" class="radio">
+            <label>
+                <input type="radio" name="DTMFRequired" value="true" checked="checked" > yes</label>
+            <label>
+                <input type="radio" name="DTMFRequired" value="false" > no</label>
+        </div>
+        <br>
+        <label for="BargeInRequired">Barge-in Required</label>
+        <div id="BargeInRequired" class="radio">
+            <label>
+                <input type="radio" name="BargeInRequired" value="true" > yes</label>
+            <label>
+                <input type="radio" name="BargeInRequired" value="false" checked="checked"> no</label>
+        </div>
+        <br>    
+
+        <h2>Others</h2>
+
+        <label for="customReporting">Custom Reporting Requirements:</label>
+        <div id="customReporting" class="radio">
+            <label>
+                <input type="radio" name="customReporting" value="true"> yes</label>
+            <label>
+                <input type="radio" name="customReporting" value="false" checked="checked"> no</label>
+        </div>
+        <br>
+        <label for="ContentSharingRequired">Content sharing required
+            <span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
+                <span class="tooltiptext">documents, images etc..</span>
+            </span>
+        </label>
+        <div id="ContentSharingRequired" class="radio">
+            <label>
+                <input type="radio" name="ContentSharingRequired" value="true"> yes</label>
+            <label>
+                <input type="radio" name="ContentSharingRequired" value="false" checked="checked"> no</label>
+        </div>
+        <br>
+        <label for="RecordingsRequired">Conversation Voice recording required</label>
+        <div id="RecordingsRequired" class="radio">
+            <label>
+                <input type="radio" name="RecordingsRequired" value="true"> yes</label>
+            <label>
+                <input type="radio" name="RecordingsRequired" value="false" checked="checked"> no</label>
+        </div>
+        <br>
+        <label for="DynamicFAQTraining">Dynamic FAQ training</label>
+        <div id="DynamicFAQTraining" class="radio">
+            <label>
+                <input type="radio" name="DynamicFAQTraining" value="true"> yes</label>
+            <label>
+                <input type="radio" name="DynamicFAQTraining" value="false" checked="checked"> no</label>
+        </div>
+        <br>
+        <label for="DataInformationMasking">Data information masking</label>
+        <div id="DataInformationMasking" class="radio">
+            <label>
+                <input type="radio" name="DataInformationMasking" value="true"> yes</label>
+            <label>
+                <input type="radio" name="DataInformationMasking" value="false" checked="checked"> no</label>
+        </div>
+        <br>
+        <label for="DemoRequirements">By default, Bell commits to perform demos/reviews at the end of major milestones. If additional requirements (For example, Per UC etc..)</label>
+        <div id="DemoRequirements" class="radio">
+            <label>
+                <input type="radio" name="DemoRequirements" value="true"> yes</label>
+            <label>
+                <input type="radio" name="DemoRequirements" value="false" checked="checked"> no</label>
+
+        </div>
+        <br>
+
+        <button class="azure-button" onclick="calculatePrice()">Submit</button>
+    </div>
+</body>
+
+</html>
