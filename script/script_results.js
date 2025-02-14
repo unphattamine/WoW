@@ -113,6 +113,46 @@ window.onload = function() {
     } else {
         //console.log("channels verified - OK");
     }
+    
+    //If not APIExposed 
+    if(localStorage.getItem("APIExposed") !== "true"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Integrations not Internet facing, a sales representative will be reaching out to clarify Integration connectivity and authentication requirements. ";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
+    //If Custom Leveling selected 
+    if(localStorage.getItem("customLeveling") !== "false"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Custom leveling selected, a sales representative will be reaching out to clarify  requirements";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
+    //If Complex Entity selected  
+    if(localStorage.getItem("EntityRequirements") !== "false"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Complex Entity selected, a sales representative will be reaching out to clarify  requirements";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
+    //If Intent model training data not available
+    if(localStorage.getItem("IntentModelTrainingData") !== "true"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Intent model not provided,  a sales representative will be reaching out to clarify  requirements";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
 
     //IF CHANNEL EMAIL & NO INTEGRATIONS
     if(integrations == "false" && channels.includes('email')){
