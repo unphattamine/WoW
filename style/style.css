@@ -32,6 +32,10 @@ body {
     margin: 10px 0;
 }
 
+h1 {
+    text-align: center;
+}
+
 h2 {
     color: #323130;
     border-bottom: 1px solid #e1dfdd;
@@ -170,8 +174,40 @@ p {
     font-size: 16px;
     line-height: 1.5;
     margin: 10px 0;
+} 
+
+.justified-text {
+    text-align: justify;
 }
 
 .page-break {
     page-break-before: always;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid #e1e1e1;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #0078d4; /* Azure blue */
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f3f2f1; /* Light gray */
+}
+/*#tableSummary td:nth-child(2) {
+    font-weight: bold;
+}*/
+
+.header-row {
+    background-color: #0078d4; /* Azure blue */
+    color: white;
+    font-weight: bold;
+    text-align: center;
 }
