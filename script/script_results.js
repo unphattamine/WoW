@@ -84,6 +84,36 @@ window.onload = function() {
         document.getElementById("customReportingMessage").appendChild(message);
     }
 
+    //If CHANNEL SMS/Email
+    if(channels.includes('email')||channels.includes('SMS')){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Custom Channel required, a sales representative will be reaching to clarify channel integration requirements. ";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
+    //If Custom Timezone requirements
+        if(localStorage.getItem("customTimezone") !== "no"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Estimation is not considering custom Delivery location requirements, a sales representative will be reaching to clarify. ";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
+    //If Go Live no Single. 
+    if(localStorage.getItem("GoLiveApproach") !== "Single"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Custom GoLive approach selected, a sales representative will be reaching to clarify GoLive approach";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
     //IF CHANNEL EMAIL & NO INTEGRATIONS
     if(integrations == "false" && channels.includes('email')){
         //console.log("channels verified - FAIL");
@@ -116,32 +146,6 @@ function send_email(){
 }
 
 //EXPORT PDF
-/*function downloadPDF() {
-    const element = document.getElementById('pdf_results');
-    const images = element.getElementsByTagName('img');
-
-    for (let img of images) {
-        img.crossOrigin = 'Anonymous';
-    }
-
-    
-    html2pdf()
-        .from(element)
-        .set({
-            margin: [10, 10, 10, 10], // Adjust margins as needed
-            filename: 'SOW_draft.pdf',
-            html2canvas: { scale: 2, useCORS: true },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        })
-        .save()
-        .then(() => {
-            console.log('PDF generated successfully.');
-        })
-        .catch((error) => {
-            console.error('Error generating PDF:', error);
-        });
-}
-*/
 function downloadPDF() {
     const element = document.getElementById('pdf_results');
     const images = element.getElementsByTagName('img');
@@ -183,7 +187,6 @@ async function exportHTMLToDocx() {
     const cssContent = await cssResponse.text();
     const htmlContent = document.getElementById("pdf_results").outerHTML;
 
-    // Create a Word document structure with embedded CSS
     const preHtml = `
     <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
     <head><meta charset='utf-8'><title>Export HTML to DOC</title>
@@ -194,23 +197,17 @@ async function exportHTMLToDocx() {
 const postHtml = `</body></html>`;
 const fullHtml = preHtml + htmlContent + postHtml;
 
-// Create a blob with the Word document content
 const blob = new Blob(['\ufeff', fullHtml], {
     type: 'application/msword'
 });
 
-// Create a link element
+
 const link = document.createElement("a");
 link.href = URL.createObjectURL(blob);
 link.download = "SOW_draft.doc";
 
-// Append the link to the body
 document.body.appendChild(link);
-
-// Programmatically click the link to trigger the download
 link.click();
-
-// Remove the link from the document
 document.body.removeChild(link);
   }
 
