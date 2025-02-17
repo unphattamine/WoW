@@ -34,10 +34,10 @@
                 <span class="tooltiptext">If more than 2 API calls, more than 5 business process steps. </span>
             </span>
         </label>
-        <input type="number" id="complexUCs" min="0">
+        <input type="number" id="complexUCs" value="0" min="0">
 
         <label for="simpleUCs">Number of Simple UCs:</label>
-        <input type="number" id="simpleUCs" min="0">
+        <input type="number" id="simpleUCs" value="0" min="0">
         <br><br>
         <label for="channel">Channel:</label>
         <div id="channel" style="display: flex; gap: 10px; align-items: center;">
@@ -107,15 +107,15 @@
         <h2>Additional Timeline requirements</h2>
 
         <label for="Hypercare">Number of Hypercare Weeks:</label>
-        <input type="number" id="Hypercare" min="0">
+        <input type="number" id="Hypercare" value="2" min="2">
 
         <label for="UAT">Number of UAT Weeks:</label>
-        <input type="number" id="UAT" min="0">
+        <input type="number" id="UAT" value="2" min="2">
 
         <label for="Enablement">Enablement Support Hours:<span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">
             <span class="tooltiptext">Enablement is used after Project closure for consultancy services for a default period of 3 months</span>
         </span></label>
-        <input type="number" id="Enablement" min="0">
+        <input type="number" id="Enablement" value="0" min="0">
         <br><br>
         <label for="GoLiveApproach">GoLive approach</label>
         <div id="GoLiveApproach" class="radio">
@@ -198,7 +198,7 @@
         </div>
         <br>
         <label for="IntentNumber">Expected number of intents:</label>
-        <input type="number" id="IntentNumber" min="0">
+        <input type="number" id="IntentNumber" value="0" min="0">
         <br><br>
         <label for="contextswitching">Context switching required
             <span class="tooltip"><img src="img/hint_questionmark.png" alt="questionmark">

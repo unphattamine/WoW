@@ -68,13 +68,18 @@ function calculatePrice() {
     let DemoRequirements = document.querySelector('input[name="DemoRequirements"]:checked');
 
 
-
     let enablement = parseInt(document.getElementById("Enablement").value) || 0;
     
     let multiplier = (channel === "Voice" || channel === "Chat") ? 1 : 1.7;
 
-    let solutionTimeline = (((complexUCs * config.complexUCsMultiplier) + (simpleUCs * config.simpleUCsMultiplier)) * multiplier) + config.baseSolutionTimeline;
-    let devTimeline = ((complexUCs * config.complexUCsDevMultiplier) + ((simpleUCs + config.simpleUCsDevAdditional) * config.devMultiplier)) * multiplier;
+    //TIMELINE FORMULAS
+    let solutionTimeline = (1*complexUCs) + (0.75*simpleUCs)+ 2;
+    let devTimeline = (1*complexUCs) + (0.5*simpleUCs) + 2;
+    let UATTimeline = (1*UAT);
+    let HypercareTimeline = (1*Hypercare);
+    let totalTimeline = config.elapsedTimeKickoff + devTimeline + UATTimeline + HypercareTimeline;
+
+    //let devTimeline = ((complexUCs * config.complexUCsDevMultiplier) + ((simpleUCs + config.simpleUCsDevAdditional) * config.devMultiplier)) * multiplier;
     let cost = (config.costPerHour * 5 * config.solutionMultiplier * solutionTimeline) + 
                (config.devCostPerHour * 5 * devTimeline) + 
                (config.costPerHour * 5 * config.solutionAdditionalMultiplier * (devTimeline + solutionTimeline)) + 
@@ -101,7 +106,10 @@ function calculatePrice() {
     localStorage.setItem("customTimezone", customTimezone.value);
     localStorage.setItem("customLocation", customLocation.value);
     localStorage.setItem("Hypercare", Hypercare);
+    localStorage.setItem("HypercareTimeline", HypercareTimeline.toFixed(2));
     localStorage.setItem("UAT", UAT);
+    localStorage.setItem("UATTimeline", UATTimeline.toFixed(2));
+    localStorage.setItem("totalTimeline", totalTimeline.toFixed(2));
     localStorage.setItem("Enablement", Enablement);
     localStorage.setItem("GoLiveApproach", GoLiveApproach.value);
 

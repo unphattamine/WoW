@@ -1,4 +1,11 @@
 const config = {
+    //rates
+    avgCostTBA: 57.20777778,
+    avgCostSA: 80,
+    avgCostPM: 78.95,
+    avgCostCOG: 69.19210526,
+    //
+    elapsedTimeKickoff: 2,
     costPerHour: 653,
     devCostPerHour: 553,
     sellPerHour: 1045,

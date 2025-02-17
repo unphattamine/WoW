@@ -29,7 +29,10 @@ window.onload = function() {
     document.getElementById("customLocation").innerText = localStorage.getItem("customLocation");
 
     document.getElementById("Hypercare").innerText = localStorage.getItem("Hypercare");
+    document.getElementById("HypercareTimeline").innerText = localStorage.getItem("HypercareTimeline") + " weeks";
     document.getElementById("UAT").innerText = localStorage.getItem("UAT");
+    document.getElementById("UATTimeline").innerText = localStorage.getItem("UATTimeline") + " weeks";
+    document.getElementById("totalTimeline").innerText = localStorage.getItem("totalTimeline") + " weeks";
     document.getElementById("Enablement").innerText = localStorage.getItem("Enablement");
     document.getElementById("GoLiveApproach").innerText = localStorage.getItem("GoLiveApproach");
     
