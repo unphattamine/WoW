@@ -73,6 +73,7 @@ function calculatePrice() {
     let multiplier = (channel === "Voice" || channel === "Chat") ? 1 : 1.7;
 
     //TIMELINE FORMULAS
+    let kickoffTimeline = config.elapsedTimeKickoff;
     let solutionTimeline = (1*complexUCs) + (0.75*simpleUCs)+ 2;
     let devTimeline = (1*complexUCs) + (0.5*simpleUCs) + 2;
     let UATTimeline = (1*UAT);
@@ -105,6 +106,7 @@ function calculatePrice() {
 
     localStorage.setItem("customTimezone", customTimezone.value);
     localStorage.setItem("customLocation", customLocation.value);
+    localStorage.setItem("kickoffTimeline", kickoffTimeline);
     localStorage.setItem("Hypercare", Hypercare);
     localStorage.setItem("HypercareTimeline", HypercareTimeline.toFixed(2));
     localStorage.setItem("UAT", UAT);

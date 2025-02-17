@@ -28,6 +28,7 @@ window.onload = function() {
     document.getElementById("customTimezone").innerText = localStorage.getItem("customTimezone");
     document.getElementById("customLocation").innerText = localStorage.getItem("customLocation");
 
+    document.getElementById("kickoffTimeline").innerText = config.elapsedTimeKickoff.toFixed(2)  + " weeks";
     document.getElementById("Hypercare").innerText = localStorage.getItem("Hypercare");
     document.getElementById("HypercareTimeline").innerText = localStorage.getItem("HypercareTimeline") + " weeks";
     document.getElementById("UAT").innerText = localStorage.getItem("UAT");
