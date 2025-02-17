@@ -109,7 +109,11 @@ window.onload = function() {
         message.classList.add("message");
         document.getElementById("warning").appendChild(message);
     } else {
-        //console.log("channels verified - OK");
+        //ASSUMPTION
+        message = document.createElement("p");
+        message.innerText = "ℹ️ Single Go Live is expected in this SOW, any other Go Live approach will be subject to Change request process and additional charges";
+        message.classList.add("assumptions");
+        document.getElementById("assumptions").appendChild(message);
     }
     
     //If not APIExposed 
