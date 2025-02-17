@@ -67,23 +67,17 @@ window.onload = function() {
     document.getElementById("productLanguage").innerText = localStorage.getItem("productLanguage");
 
 
+    //WARNINGS SECTION, ASSUMPTIONS
     //REPORTING
     const customReporting = localStorage.getItem("customReporting");
-    //console.log(customReporting)
-    if (customReporting) {
-        //console.log(`Loaded Custom Reporting Value: ${customReporting}`);
-    } else {
-        //console.log('No custom reporting value found in local storage.');
-    }
-
-    //REPORTING WARNING
+    /*//REPORTING WARNING
     if (customReporting == "true") {
         let message = document.createElement("p");
         message.innerText = "⚠️ Custom reporting will require additional discussion with Bell pre-sales representative.";
         message.classList.add("message");
         document.getElementById("customReportingMessage").appendChild(message);
     }
-
+    */
     //If CHANNEL SMS/Email
     if(channels.includes('email')||channels.includes('SMS')){
         let message = document.createElement("p");
@@ -101,7 +95,11 @@ window.onload = function() {
         message.classList.add("message");
         document.getElementById("warning").appendChild(message);
     } else {
-        //console.log("channels verified - OK");
+        //ASSUMPTION
+        message = document.createElement("p");
+        message.innerText = "ℹ️ Delivery working hours are 8 AM to 6 PM UK timezone, additional availability requirements are subject to Change Request process and additional charges";
+        message.classList.add("assumptions");
+        document.getElementById("assumptions").appendChild(message);
     }
 
     //If Go Live no Single. 
@@ -154,13 +152,63 @@ window.onload = function() {
         //console.log("channels verified - OK");
     }
 
+    //If End Customer Governance
+    if(localStorage.getItem("EndCustomerGovernanceRequired") !== "false"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Customer Governance selected,   a sales representative will be reaching out to clarify  requirements";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
+    //If Amelia Coordination
+    if(localStorage.getItem("AmeliaCoordination") !== "false"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Amelia coordination required,  a sales representative will be reaching out to clarify  requirements";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
+    //If custom reporting requirements 
+    if(localStorage.getItem("customReporting") !== "false"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Custom reporting requirements required, a sales representative will be reaching out to clarify requirements and gather samples";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
+    //If content Sharing 
+    if(localStorage.getItem("ContentSharingRequired") !== "false"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Custom Content Sharing required, a sales representative will be reaching out to clarify requirements";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
+    //If Custom Demo, milestones closure proccess 
+    if(localStorage.getItem("DemoRequirements") !== "false"){
+        let message = document.createElement("p");
+        message.innerText = "⚠️ Custom demo or milestone requirements selected,  a sales representative will be reaching out to clarify requirements";
+        message.classList.add("message");
+        document.getElementById("warning").appendChild(message);
+    } else {
+        //console.log("channels verified - OK");
+    }
+
     //IF CHANNEL EMAIL & NO INTEGRATIONS
     if(integrations == "false" && channels.includes('email')){
         //console.log("channels verified - FAIL");
         let message = document.createElement("p");
         message.innerText = "⛔ We can not deliver email channel without email or API integration. Please discuss the implementation possibilities with technical team";
         message.classList.add("message");
-        document.getElementById("noIntegrations").appendChild(message);
+        document.getElementById("warning").appendChild(message);
     } else {
         //console.log("channels verified - OK");
     }
@@ -169,7 +217,7 @@ window.onload = function() {
         let message = document.createElement("p");
         message.innerText = "⛔ We can not deliver SMS channel without SMS or API integration. Please discuss the implementation possibilities with technical team";
         message.classList.add("message");
-        document.getElementById("noIntegrations").appendChild(message);
+        document.getElementById("warning").appendChild(message);
     } else {
         //console.log("channels verified - OK");
     }
