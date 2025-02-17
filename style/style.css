@@ -172,7 +172,14 @@ input:focus, select:focus {
 }
 
 .assumptions {
-    background-color: #ADD8E6;
+    background-color: #d9f5ff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.outofscope {
+    background-color: #ffd6d6;
     padding: 10px;
     border-radius: 5px;
     margin: 10px 0;

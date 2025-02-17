@@ -102,6 +102,17 @@ window.onload = function() {
         document.getElementById("assumptions").appendChild(message);
     }
 
+    //If Amelia training course
+    if(localStorage.getItem("AmeliaTrainingCourse") === "false"){
+        //ASSUMPTION
+        let message = document.createElement("p");
+        message.innerText = "🚫 Training for Amelia/Autopilot is outside the scope";
+        message.classList.add("outofscope");
+        document.getElementById("outofscope").appendChild(message);
+    } else {
+        //
+    }
+
     //If Go Live no Single. 
     if(localStorage.getItem("GoLiveApproach") !== "Single"){
         let message = document.createElement("p");
@@ -153,7 +164,7 @@ window.onload = function() {
         message.classList.add("message");
         document.getElementById("warning").appendChild(message);
     } else {
-        //console.log("channels verified - OK");
+        //
     }
 
     //If End Customer Governance
@@ -173,7 +184,10 @@ window.onload = function() {
         message.classList.add("message");
         document.getElementById("warning").appendChild(message);
     } else {
-        //console.log("channels verified - OK");
+        message = document.createElement("p");
+        message.innerText = "🚫 Any type of Amelia coordination or tasks : Environment setup i.e Domain creation, Amelia instance configuration, Access management, Voice mapping etc..";
+        message.classList.add("outofscope");
+        document.getElementById("outofscope").appendChild(message);
     }
 
     //If custom reporting requirements 
