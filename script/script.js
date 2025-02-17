@@ -80,6 +80,11 @@ function calculatePrice() {
     let HypercareTimeline = (1*Hypercare);
     let totalTimeline = config.elapsedTimeKickoff + devTimeline + UATTimeline + HypercareTimeline;
 
+    let PMLOE = totalTimeline*5*8*0.5;
+    let solutionLOE = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) + (0.5*3*5*8);
+    let devLOE = (1.75*complexUCs*5*8) + (1.25*simpleUCs*5*8) + (3*5*8);
+    let UATLOE = (5*8*UAT);
+
     //let devTimeline = ((complexUCs * config.complexUCsDevMultiplier) + ((simpleUCs + config.simpleUCsDevAdditional) * config.devMultiplier)) * multiplier;
     let cost = (config.costPerHour * 5 * config.solutionMultiplier * solutionTimeline) + 
                (config.devCostPerHour * 5 * devTimeline) + 
@@ -112,6 +117,10 @@ function calculatePrice() {
     localStorage.setItem("UAT", UAT);
     localStorage.setItem("UATTimeline", UATTimeline.toFixed(2));
     localStorage.setItem("totalTimeline", totalTimeline.toFixed(2));
+    localStorage.setItem("solutionLOE", solutionLOE.toFixed(2));
+    localStorage.setItem("devLOE", devLOE.toFixed(2));
+    localStorage.setItem("UATLOE", UATLOE.toFixed(2));
+    localStorage.setItem("PMLOE", PMLOE.toFixed(2));
     localStorage.setItem("Enablement", Enablement);
     localStorage.setItem("GoLiveApproach", GoLiveApproach.value);
 

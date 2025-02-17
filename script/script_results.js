@@ -34,6 +34,10 @@ window.onload = function() {
     document.getElementById("UAT").innerText = localStorage.getItem("UAT");
     document.getElementById("UATTimeline").innerText = localStorage.getItem("UATTimeline") + " weeks";
     document.getElementById("totalTimeline").innerText = localStorage.getItem("totalTimeline") + " weeks";
+    document.getElementById("solutionLOE").innerText = localStorage.getItem("solutionLOE") + " days";
+    document.getElementById("devLOE").innerText = localStorage.getItem("devLOE") + " days";
+    document.getElementById("UATLOE").innerText = localStorage.getItem("UATLOE") + " days";
+    document.getElementById("PMLOE").innerText = localStorage.getItem("PMLOE") + " days";
     document.getElementById("Enablement").innerText = localStorage.getItem("Enablement");
     document.getElementById("GoLiveApproach").innerText = localStorage.getItem("GoLiveApproach");
     
