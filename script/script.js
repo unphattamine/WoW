@@ -118,6 +118,7 @@ function calculatePrice() {
 
     let TotalHours = TBATotal + SATotal + CIETotal + PMTotal + PRMTotal;
     let TotalCost = TBACost + SACost + CIECost + PMCost + PRMCost;
+    let TotalCost2 //FOR LAST SECTION, in case of enablement or not
     let TotalSell = TBASell + SASell + CIESell + PMSell + PRMSell;
     let TotalHoursEnablement = Enablement;
 
@@ -129,6 +130,7 @@ function calculatePrice() {
     if (TotalHoursEnablement === 0) {
         TotalCostEnablement = 0;
         TotalSellEnablement = 0;
+        TotalCost2 = TotalCost
         TotalAmount = TotalSell;
         TotalAmountBMS1 = TotalAmount/2;
         TotalAmountBMS2 = TotalAmount/2;
@@ -136,6 +138,7 @@ function calculatePrice() {
         TotalHoursEnablement = TotalHours + Enablement;
         TotalCostEnablement = (Enablement * config.avgCostCOG) + (12 * 8 * 5 * 0.05 * config.avgCostPM) + TotalCost;
         TotalSellEnablement = TotalCostEnablement * 1.5;
+        TotalCost2 = TotalCostEnablement;
         TotalAmount = TotalSellEnablement;
         TotalAmountBMS1 = TotalAmount/2;
         TotalAmountBMS2 = TotalAmount/2;
@@ -212,6 +215,7 @@ function calculatePrice() {
     localStorage.setItem("PRMSell", PRMSell.toFixed(2));
     localStorage.setItem("TotalHours", TotalHours.toFixed(2));
     localStorage.setItem("TotalCost", TotalCost.toFixed(2));
+    localStorage.setItem("TotalCost2", TotalCost2.toFixed(2));
     localStorage.setItem("TotalSell", TotalSell.toFixed(2));
     localStorage.setItem("TotalHoursEnablement", TotalHoursEnablement.toFixed(2));
     localStorage.setItem("TotalCostEnablement", TotalCostEnablement.toFixed(2));

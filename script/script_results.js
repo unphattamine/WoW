@@ -2,10 +2,6 @@ window.onload = function() {
 
     document.getElementById("solutionTimeline").innerText = localStorage.getItem("solutionTimeline") + " weeks";
     document.getElementById("devTimeline").innerText = localStorage.getItem("devTimeline") + " weeks";
-    document.getElementById("cost").innerText = "GBP " + localStorage.getItem("cost");
-    document.getElementById("sell").innerText = "GBP " + localStorage.getItem("sell");
-    
-
     
     //DOCUMENT DATE
     document.getElementById('documentDate').textContent = new Date().toLocaleDateString('en-GB');
@@ -75,7 +71,9 @@ window.onload = function() {
     document.getElementById("PRMSell").innerText = localStorage.getItem("PRMSell");
     document.getElementById("TotalHours").innerText = localStorage.getItem("TotalHours")  + " hours";
     document.getElementById("TotalCost").innerText = localStorage.getItem("TotalCost");
+    document.getElementById("TotalCost2").innerText = "GBP " + localStorage.getItem("TotalCost2");
     document.getElementById("TotalSell").innerText = localStorage.getItem("TotalSell");
+    document.getElementById("TotalSell2").innerText = "GBP " + localStorage.getItem("TotalAmount");
     document.getElementById("TotalHoursEnablement").innerText = localStorage.getItem("TotalHoursEnablement")  + " hours";
     document.getElementById("TotalCostEnablement").innerText = localStorage.getItem("TotalCostEnablement");
     document.getElementById("TotalSellEnablement").innerText = localStorage.getItem("TotalSellEnablement");
