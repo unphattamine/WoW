@@ -84,7 +84,14 @@ function calculatePrice() {
     let solutionLOE = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) + (0.5*3*5*8);
     let devLOE = (1.75*complexUCs*5*8) + (1.25*simpleUCs*5*8) + (3*5*8);
     let UATLOE = (5*8*UAT);
-
+    let TBAkickoff = 0.5*8*5*kickoffTimeline;
+    let TBAsolutioning = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) +0.5*3*5*8;
+    let TBAdevelopment = (1.75*complexUCs*5*8) + (1.25*simpleUCs*5*8) + 3*5*8;
+    let TBAUAT = UAT*5*8;
+    let TBAHypercare = Hypercare*5*8;
+    let TBATotal = TBAkickoff+TBAsolutioning+TBAdevelopment+TBAUAT+TBAHypercare;
+    let SAkickoff = 0.5*8*5*kickoffTimeline;
+    
     //let devTimeline = ((complexUCs * config.complexUCsDevMultiplier) + ((simpleUCs + config.simpleUCsDevAdditional) * config.devMultiplier)) * multiplier;
     let cost = (config.costPerHour * 5 * config.solutionMultiplier * solutionTimeline) + 
                (config.devCostPerHour * 5 * devTimeline) + 
@@ -121,6 +128,14 @@ function calculatePrice() {
     localStorage.setItem("devLOE", devLOE.toFixed(2));
     localStorage.setItem("UATLOE", UATLOE.toFixed(2));
     localStorage.setItem("PMLOE", PMLOE.toFixed(2));
+    localStorage.setItem("TBAkickoff", TBAkickoff.toFixed(2));
+    localStorage.setItem("SAkickoff", SAkickoff.toFixed(2));
+    localStorage.setItem("TBAsolutioning", TBAsolutioning.toFixed(2));
+    localStorage.setItem("TBAdevelopment", TBAdevelopment.toFixed(2));
+    localStorage.setItem("TBAUAT", TBAUAT.toFixed(2));
+    localStorage.setItem("TBAHypercare", TBAHypercare.toFixed(2));
+    localStorage.setItem("TBATotal", TBATotal.toFixed(2));
+
     localStorage.setItem("Enablement", Enablement);
     localStorage.setItem("GoLiveApproach", GoLiveApproach.value);
 
