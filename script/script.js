@@ -96,6 +96,12 @@ function calculatePrice() {
     let SAUAT = 0;
     let SAHypercare = 0;
     let SATotal = SAkickoff+SAsolutioning+SAdevelopment+SAUAT+SAHypercare;
+    let CIEkickoff = 0;
+    let CIEsolutioning = 0.5*5*8;
+    let CIEdevelopment = TBAdevelopment*0.5;
+    let CIEUAT = TBAUAT*0.5;
+    let CIEHypercare = TBAHypercare*0.5;
+    let CIETotal = CIEkickoff+CIEsolutioning+CIEdevelopment+CIEUAT+CIEHypercare;
     
     //let devTimeline = ((complexUCs * config.complexUCsDevMultiplier) + ((simpleUCs + config.simpleUCsDevAdditional) * config.devMultiplier)) * multiplier;
     let cost = (config.costPerHour * 5 * config.solutionMultiplier * solutionTimeline) + 
@@ -145,6 +151,12 @@ function calculatePrice() {
     localStorage.setItem("SAUAT", SAUAT.toFixed(2));
     localStorage.setItem("SAHypercare", SAHypercare.toFixed(2));
     localStorage.setItem("SATotal", SATotal.toFixed(2));
+    localStorage.setItem("CIEkickoff", CIEkickoff.toFixed(2));
+    localStorage.setItem("CIEsolutioning", CIEsolutioning.toFixed(2));
+    localStorage.setItem("CIEdevelopment", CIEdevelopment.toFixed(2));
+    localStorage.setItem("CIEUAT", CIEUAT.toFixed(2));
+    localStorage.setItem("CIEHypercare", CIEHypercare.toFixed(2));
+    localStorage.setItem("CIETotal", CIETotal.toFixed(2));
 
     localStorage.setItem("Enablement", Enablement);
     localStorage.setItem("GoLiveApproach", GoLiveApproach.value);
