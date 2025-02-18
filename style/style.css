@@ -216,9 +216,12 @@ th {
 tr:nth-child(even) {
     background-color: #f3f2f1; /* Light gray */
 }
-/*#tableSummary td:nth-child(2) {
-    font-weight: bold;
-}*/
+.resources th, .timeline th {
+    text-align: left; /* Keep headers aligned to the left */
+}
+.resources td:not(:first-child), .timeline td:not(:first-child) {
+    text-align: right; /* Align all columns except the first one to the right */
+}
 
 .header-row {
     background-color: #0078d4; /* Azure blue */

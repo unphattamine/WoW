@@ -81,6 +81,7 @@ function calculatePrice() {
     let totalTimeline = config.elapsedTimeKickoff + devTimeline + UATTimeline + HypercareTimeline;
 
     let PMLOE = totalTimeline*5*8*0.5;
+    let PMTotal = PMLOE;
     let solutionLOE = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) + (0.5*3*5*8);
     let devLOE = (1.75*complexUCs*5*8) + (1.25*simpleUCs*5*8) + (3*5*8);
     let UATLOE = (5*8*UAT);
@@ -102,7 +103,34 @@ function calculatePrice() {
     let CIEUAT = TBAUAT*0.5;
     let CIEHypercare = TBAHypercare*0.5;
     let CIETotal = CIEkickoff+CIEsolutioning+CIEdevelopment+CIEUAT+CIEHypercare;
+
+    let TBACost = TBATotal*config.avgCostTBA;
+    let TBASell = TBACost*1.5;
+    let SACost = SATotal*config.avgCostSA;
+    let SASell = SACost*1.5;
+    let PMCost = PMTotal*config.avgCostPM;
+    let PMSell = PMCost*1.5;
+    let CIECost = CIETotal*config.avgCostCOG;
+    let CIESell = CIECost*1.5;
+
+    let TotalHours = TBATotal + SATotal + CIETotal + PMTotal;
+    let TotalCost = TBACost + SACost + CIECost + PMCost;
+    let TotalSell = TBASell + SASell + CIESell + PMSell;
+    let TotalHoursEnablement = Enablement;
+
+    let TotalCostEnablement
+    let TotalSellEnablement
+    if (TotalHoursEnablement === 0) {
+        TotalCostEnablement = 0;
+        TotalSellEnablement = 0;
+    } else {
+        TotalHoursEnablement = TotalHours + Enablement;
+        TotalCostEnablement = (TotalHoursEnablement * config.avgCostCOG) + (12 * 8 * 5 * 0.05 * config.avgCostPM);
+        TotalSellEnablement = (TotalCostEnablement * 1.5) + TotalSell;
+    }
     
+
+
     //let devTimeline = ((complexUCs * config.complexUCsDevMultiplier) + ((simpleUCs + config.simpleUCsDevAdditional) * config.devMultiplier)) * multiplier;
     let cost = (config.costPerHour * 5 * config.solutionMultiplier * solutionTimeline) + 
                (config.devCostPerHour * 5 * devTimeline) + 
@@ -139,6 +167,7 @@ function calculatePrice() {
     localStorage.setItem("devLOE", devLOE.toFixed(2));
     localStorage.setItem("UATLOE", UATLOE.toFixed(2));
     localStorage.setItem("PMLOE", PMLOE.toFixed(2));
+    localStorage.setItem("PMTotal1", PMTotal.toFixed(2));
     localStorage.setItem("TBAkickoff", TBAkickoff.toFixed(2));
     localStorage.setItem("TBAsolutioning", TBAsolutioning.toFixed(2));
     localStorage.setItem("TBAdevelopment", TBAdevelopment.toFixed(2));
@@ -157,6 +186,21 @@ function calculatePrice() {
     localStorage.setItem("CIEUAT", CIEUAT.toFixed(2));
     localStorage.setItem("CIEHypercare", CIEHypercare.toFixed(2));
     localStorage.setItem("CIETotal", CIETotal.toFixed(2));
+
+    localStorage.setItem("TBACost", TBACost.toFixed(2));
+    localStorage.setItem("TBASell", TBASell.toFixed(2));
+    localStorage.setItem("SACost", SACost.toFixed(2));
+    localStorage.setItem("SASell", SASell.toFixed(2));
+    localStorage.setItem("PMCost", PMCost.toFixed(2));
+    localStorage.setItem("PMSell", PMSell.toFixed(2));
+    localStorage.setItem("CIECost", CIECost.toFixed(2));
+    localStorage.setItem("CIESell", CIESell.toFixed(2));
+    localStorage.setItem("TotalHours", TotalHours.toFixed(2));
+    localStorage.setItem("TotalCost", TotalCost.toFixed(2));
+    localStorage.setItem("TotalSell", TotalSell.toFixed(2));
+    localStorage.setItem("TotalHoursEnablement", TotalHoursEnablement.toFixed(2));
+    localStorage.setItem("TotalCostEnablement", TotalCostEnablement.toFixed(2));
+    localStorage.setItem("TotalSellEnablement", TotalSellEnablement.toFixed(2));
 
     localStorage.setItem("Enablement", Enablement);
     localStorage.setItem("GoLiveApproach", GoLiveApproach.value);
