@@ -68,17 +68,17 @@ function calculatePrice() {
     let DemoRequirements = document.querySelector('input[name="DemoRequirements"]:checked');
 
 
-    let enablement = parseInt(document.getElementById("Enablement").value) || 0;
+    //let enablement = parseInt(document.getElementById("Enablement").value) || 0;
     
-    let multiplier = (channel === "Voice" || channel === "Chat") ? 1 : 1.7;
+    //let multiplier = (channel === "Voice" || channel === "Chat") ? 1 : 1.7;
 
     //TIMELINE FORMULAS
     let kickoffTimeline = config.elapsedTimeKickoff;
-    let solutionTimeline = (1*complexUCs) + (0.75*simpleUCs)+ 2;
+    let solutionTimeline = (1*complexUCs) + (0.5*simpleUCs) + 2;
     let devTimeline = (1*complexUCs) + (0.5*simpleUCs) + 2;
     let UATTimeline = (1*UAT);
     let HypercareTimeline = (1*Hypercare);
-    let totalTimeline = config.elapsedTimeKickoff + devTimeline + UATTimeline + HypercareTimeline;
+    let totalTimeline = config.elapsedTimeKickoff + solutionTimeline + devTimeline + UATTimeline + HypercareTimeline;
 
     let PMLOE = totalTimeline*5*8*0.5;
     let PMTotal = PMLOE;
@@ -103,6 +103,7 @@ function calculatePrice() {
     let CIEUAT = TBAUAT*0.5;
     let CIEHypercare = TBAHypercare*0.5;
     let CIETotal = CIEkickoff+CIEsolutioning+CIEdevelopment+CIEUAT+CIEHypercare;
+    let PRMTotal = 10*totalTimeline;
 
     let TBACost = TBATotal*config.avgCostTBA;
     let TBASell = TBACost*1.5;
@@ -112,25 +113,36 @@ function calculatePrice() {
     let PMSell = PMCost*1.5;
     let CIECost = CIETotal*config.avgCostCOG;
     let CIESell = CIECost*1.5;
+    let PRMCost = PRMTotal*config.avgCostPRM;
+    let PRMSell = PRMCost*1.5;
 
-    let TotalHours = TBATotal + SATotal + CIETotal + PMTotal;
-    let TotalCost = TBACost + SACost + CIECost + PMCost;
-    let TotalSell = TBASell + SASell + CIESell + PMSell;
+    let TotalHours = TBATotal + SATotal + CIETotal + PMTotal + PRMTotal;
+    let TotalCost = TBACost + SACost + CIECost + PMCost + PRMCost;
+    let TotalSell = TBASell + SASell + CIESell + PMSell + PRMSell;
     let TotalHoursEnablement = Enablement;
 
-    let TotalCostEnablement
-    let TotalSellEnablement
+    let TotalCostEnablement;
+    let TotalSellEnablement;
+    let TotalAmountBMS1;
+    let TotalAmountBMS2;
+    let TotalAmount;
     if (TotalHoursEnablement === 0) {
         TotalCostEnablement = 0;
         TotalSellEnablement = 0;
+        TotalAmount = TotalSell;
+        TotalAmountBMS1 = TotalAmount/2;
+        TotalAmountBMS2 = TotalAmount/2;
     } else {
         TotalHoursEnablement = TotalHours + Enablement;
-        TotalCostEnablement = (TotalHoursEnablement * config.avgCostCOG) + (12 * 8 * 5 * 0.05 * config.avgCostPM);
-        TotalSellEnablement = (TotalCostEnablement * 1.5) + TotalSell;
+        TotalCostEnablement = (Enablement * config.avgCostCOG) + (12 * 8 * 5 * 0.05 * config.avgCostPM) + TotalCost;
+        TotalSellEnablement = TotalCostEnablement * 1.5;
+        TotalAmount = TotalSellEnablement;
+        TotalAmountBMS1 = TotalAmount/2;
+        TotalAmountBMS2 = TotalAmount/2;
     }
     
 
-
+    /*
     //let devTimeline = ((complexUCs * config.complexUCsDevMultiplier) + ((simpleUCs + config.simpleUCsDevAdditional) * config.devMultiplier)) * multiplier;
     let cost = (config.costPerHour * 5 * config.solutionMultiplier * solutionTimeline) + 
                (config.devCostPerHour * 5 * devTimeline) + 
@@ -142,7 +154,7 @@ function calculatePrice() {
                (config.sellPerHour * 5 * config.sellAdditionalMultiplier * (devTimeline + solutionTimeline)) + 
                (config.devSellPerHour * 5 * (Hypercare + UAT)) + 
                (enablement * config.enablementSell);
-
+    */
 
     localStorage.setItem("fcustomer", fcustomer);
     localStorage.setItem("fmail", fmail);
@@ -186,6 +198,7 @@ function calculatePrice() {
     localStorage.setItem("CIEUAT", CIEUAT.toFixed(2));
     localStorage.setItem("CIEHypercare", CIEHypercare.toFixed(2));
     localStorage.setItem("CIETotal", CIETotal.toFixed(2));
+    localStorage.setItem("PRMTotal", PRMTotal.toFixed(2));
 
     localStorage.setItem("TBACost", TBACost.toFixed(2));
     localStorage.setItem("TBASell", TBASell.toFixed(2));
@@ -195,12 +208,17 @@ function calculatePrice() {
     localStorage.setItem("PMSell", PMSell.toFixed(2));
     localStorage.setItem("CIECost", CIECost.toFixed(2));
     localStorage.setItem("CIESell", CIESell.toFixed(2));
+    localStorage.setItem("PRMCost", PRMCost.toFixed(2));
+    localStorage.setItem("PRMSell", PRMSell.toFixed(2));
     localStorage.setItem("TotalHours", TotalHours.toFixed(2));
     localStorage.setItem("TotalCost", TotalCost.toFixed(2));
     localStorage.setItem("TotalSell", TotalSell.toFixed(2));
     localStorage.setItem("TotalHoursEnablement", TotalHoursEnablement.toFixed(2));
     localStorage.setItem("TotalCostEnablement", TotalCostEnablement.toFixed(2));
     localStorage.setItem("TotalSellEnablement", TotalSellEnablement.toFixed(2));
+    localStorage.setItem("TotalAmount", TotalAmount.toFixed(2));
+    localStorage.setItem("TotalAmountBMS1", TotalAmountBMS1.toFixed(2));
+    localStorage.setItem("TotalAmountBMS2", TotalAmountBMS2.toFixed(2));
 
     localStorage.setItem("Enablement", Enablement);
     localStorage.setItem("GoLiveApproach", GoLiveApproach.value);
@@ -234,8 +252,8 @@ function calculatePrice() {
 
     localStorage.setItem("solutionTimeline", solutionTimeline.toFixed(2));
     localStorage.setItem("devTimeline", devTimeline.toFixed(2));
-    localStorage.setItem("cost", cost.toFixed(2));
-    localStorage.setItem("sell", sell.toFixed(2));
+    //localStorage.setItem("cost", cost.toFixed(2));
+    //localStorage.setItem("sell", sell.toFixed(2));
     localStorage.setItem("fcustomer", fcustomer);
     localStorage.setItem("fnotes", fnotes);
     localStorage.setItem("fmail", fmail);

@@ -216,11 +216,14 @@ th {
 tr:nth-child(even) {
     background-color: #f3f2f1; /* Light gray */
 }
-.resources th, .timeline th {
+.resources th, .timeline th, .billing th {
     text-align: left; /* Keep headers aligned to the left */
 }
-.resources td:not(:first-child), .timeline td:not(:first-child) {
+.resources td:not(:first-child), .timeline td:not(:first-child), .billing td:not(:first-child) {
     text-align: right; /* Align all columns except the first one to the right */
+}
+.billing th, .billing td {
+    width: 33.33%;
 }
 
 .header-row {

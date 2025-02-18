@@ -60,6 +60,7 @@ window.onload = function() {
     document.getElementById("CIEHypercare").innerText = localStorage.getItem("CIEHypercare");
     document.getElementById("CIETotal").innerText = localStorage.getItem("CIETotal") + " hours";
     document.getElementById("CIETotal1").innerText = localStorage.getItem("CIETotal") + " hours";
+    document.getElementById("PRMTotal1").innerText = localStorage.getItem("PRMTotal") + " hours";
 
     //COST + MAN HOURS
     document.getElementById("TBACost").innerText = localStorage.getItem("TBACost");
@@ -70,12 +71,17 @@ window.onload = function() {
     document.getElementById("PMSell").innerText = localStorage.getItem("PMSell");
     document.getElementById("CIECost").innerText = localStorage.getItem("CIECost");
     document.getElementById("CIESell").innerText = localStorage.getItem("CIESell");
+    document.getElementById("PRMCost").innerText = localStorage.getItem("PRMCost");
+    document.getElementById("PRMSell").innerText = localStorage.getItem("PRMSell");
     document.getElementById("TotalHours").innerText = localStorage.getItem("TotalHours")  + " hours";
     document.getElementById("TotalCost").innerText = localStorage.getItem("TotalCost");
     document.getElementById("TotalSell").innerText = localStorage.getItem("TotalSell");
     document.getElementById("TotalHoursEnablement").innerText = localStorage.getItem("TotalHoursEnablement")  + " hours";
     document.getElementById("TotalCostEnablement").innerText = localStorage.getItem("TotalCostEnablement");
     document.getElementById("TotalSellEnablement").innerText = localStorage.getItem("TotalSellEnablement");
+    document.getElementById("TotalAmount").innerText = "GBP " + localStorage.getItem("TotalAmount");
+    document.getElementById("TotalAmountBMS1").innerText = "GBP " + localStorage.getItem("TotalAmountBMS1");
+    document.getElementById("TotalAmountBMS2").innerText = "GBP " + localStorage.getItem("TotalAmountBMS2");
 
     document.getElementById("Enablement").innerText = localStorage.getItem("Enablement");
     document.getElementById("GoLiveApproach").innerText = localStorage.getItem("GoLiveApproach");

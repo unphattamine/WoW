@@ -4,6 +4,7 @@ const config = {
     avgCostSA: 80,
     avgCostPM: 78.95,
     avgCostCOG: 69.19210526,
+    avgCostPRM: 78.95,
     //
     elapsedTimeKickoff: 2,
     costPerHour: 653,
