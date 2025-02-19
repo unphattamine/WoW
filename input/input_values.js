@@ -7,6 +7,9 @@ const config = {
     avgCostPRM: 78.95,
     //
     elapsedTimeKickoff: 2,
+    contingency: 1.15,
+    sellMargin: 1.3
+    /*
     costPerHour: 653,
     devCostPerHour: 553,
     sellPerHour: 1045,
@@ -22,4 +25,5 @@ const config = {
     simpleUCsMultiplier: 0.75,
     complexUCsDevMultiplier: 2,
     simpleUCsDevAdditional: 2
+    */
 };

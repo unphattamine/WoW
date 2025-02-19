@@ -74,8 +74,8 @@ function calculatePrice() {
 
     //TIMELINE FORMULAS
     let kickoffTimeline = config.elapsedTimeKickoff;
-    let solutionTimeline = (1*complexUCs) + (0.5*simpleUCs) + 2;
-    let devTimeline = (1*complexUCs) + (0.5*simpleUCs) + 2;
+    let solutionTimeline = (1*complexUCs) + (0.75*simpleUCs) + 2;
+    let devTimeline = (2*complexUCs) + (1*simpleUCs) + 2;
     let UATTimeline = (1*UAT);
     let HypercareTimeline = (1*Hypercare);
     let totalTimeline = config.elapsedTimeKickoff + solutionTimeline + devTimeline + UATTimeline + HypercareTimeline;
@@ -83,11 +83,11 @@ function calculatePrice() {
     let PMLOE = totalTimeline*5*8*0.5;
     let PMTotal = PMLOE;
     let solutionLOE = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) + (0.5*3*5*8);
-    let devLOE = (1.75*complexUCs*5*8) + (1.25*simpleUCs*5*8) + (3*5*8);
+    let devLOE = devTimeline*5*8;
     let UATLOE = (5*8*UAT);
     let TBAkickoff = 0.5*8*5*kickoffTimeline;
     let TBAsolutioning = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) +0.5*3*5*8;
-    let TBAdevelopment = (1.75*complexUCs*5*8) + (1.25*simpleUCs*5*8) + 3*5*8;
+    let TBAdevelopment = devTimeline*5*8;
     let TBAUAT = UAT*5*8;
     let TBAHypercare = Hypercare*5*8;
     let TBATotal = TBAkickoff+TBAsolutioning+TBAdevelopment+TBAUAT+TBAHypercare;
@@ -106,29 +106,37 @@ function calculatePrice() {
     let PRMTotal = 10*totalTimeline;
 
     let TBACost = TBATotal*config.avgCostTBA;
-    let TBASell = TBACost*1.5;
+    let TBACostwContingency = TBACost*config.contingency;
+    let TBASell = TBACostwContingency*config.sellMargin;
     let SACost = SATotal*config.avgCostSA;
-    let SASell = SACost*1.5;
+    let SACostwContingency = SACost*config.contingency;
+    let SASell = SACostwContingency*config.sellMargin;
     let PMCost = PMTotal*config.avgCostPM;
-    let PMSell = PMCost*1.5;
+    let PMCostwContingency = PMCost*config.contingency;
+    let PMSell = PMCostwContingency*config.sellMargin;
     let CIECost = CIETotal*config.avgCostCOG;
-    let CIESell = CIECost*1.5;
+    let CIECostwContingency = CIECost*config.contingency;
+    let CIESell = CIECostwContingency*config.sellMargin;
     let PRMCost = PRMTotal*config.avgCostPRM;
-    let PRMSell = PRMCost*1.5;
+    let PRMCostwContingency = PRMCost*config.contingency;
+    let PRMSell = PRMCostwContingency*config.sellMargin;
 
     let TotalHours = TBATotal + SATotal + CIETotal + PMTotal + PRMTotal;
     let TotalCost = TBACost + SACost + CIECost + PMCost + PRMCost;
+    let TotalCostwContingency = TotalCost*config.contingency;
     let TotalCost2 //FOR LAST SECTION, in case of enablement or not
     let TotalSell = TBASell + SASell + CIESell + PMSell + PRMSell;
     let TotalHoursEnablement = Enablement;
 
     let TotalCostEnablement;
+    let TotalCostEnablementwContingency;
     let TotalSellEnablement;
     let TotalAmountBMS1;
     let TotalAmountBMS2;
     let TotalAmount;
     if (TotalHoursEnablement === 0) {
         TotalCostEnablement = 0;
+        TotalCostEnablementwContingency = 0;
         TotalSellEnablement = 0;
         TotalCost2 = TotalCost
         TotalAmount = TotalSell;
@@ -137,7 +145,8 @@ function calculatePrice() {
     } else {
         TotalHoursEnablement = TotalHours + Enablement;
         TotalCostEnablement = (Enablement * config.avgCostCOG) + (12 * 8 * 5 * 0.05 * config.avgCostPM) + TotalCost;
-        TotalSellEnablement = TotalCostEnablement * 1.5;
+        TotalCostEnablementwContingency = TotalCostEnablement*config.contingency;
+        TotalSellEnablement = TotalCostEnablementwContingency * config.sellMargin;
         TotalCost2 = TotalCostEnablement;
         TotalAmount = TotalSellEnablement;
         TotalAmountBMS1 = TotalAmount/2;
@@ -204,21 +213,28 @@ function calculatePrice() {
     localStorage.setItem("PRMTotal", PRMTotal.toFixed(2));
 
     localStorage.setItem("TBACost", TBACost.toFixed(2));
+    localStorage.setItem("TBACostwContingency", TBACostwContingency.toFixed(2));
     localStorage.setItem("TBASell", TBASell.toFixed(2));
     localStorage.setItem("SACost", SACost.toFixed(2));
+    localStorage.setItem("SACostwContingency", SACostwContingency.toFixed(2));
     localStorage.setItem("SASell", SASell.toFixed(2));
     localStorage.setItem("PMCost", PMCost.toFixed(2));
+    localStorage.setItem("PMCostwContingency", PMCostwContingency.toFixed(2));
     localStorage.setItem("PMSell", PMSell.toFixed(2));
     localStorage.setItem("CIECost", CIECost.toFixed(2));
+    localStorage.setItem("CIECostwContingency", CIECostwContingency.toFixed(2));
     localStorage.setItem("CIESell", CIESell.toFixed(2));
     localStorage.setItem("PRMCost", PRMCost.toFixed(2));
+    localStorage.setItem("PRMCostwContingency", PRMCostwContingency.toFixed(2));
     localStorage.setItem("PRMSell", PRMSell.toFixed(2));
     localStorage.setItem("TotalHours", TotalHours.toFixed(2));
     localStorage.setItem("TotalCost", TotalCost.toFixed(2));
     localStorage.setItem("TotalCost2", TotalCost2.toFixed(2));
+    localStorage.setItem("TotalCostwContingency", TotalCostwContingency.toFixed(2));
     localStorage.setItem("TotalSell", TotalSell.toFixed(2));
     localStorage.setItem("TotalHoursEnablement", TotalHoursEnablement.toFixed(2));
     localStorage.setItem("TotalCostEnablement", TotalCostEnablement.toFixed(2));
+    localStorage.setItem("TotalCostEnablementwContingency", TotalCostEnablementwContingency.toFixed(2));
     localStorage.setItem("TotalSellEnablement", TotalSellEnablement.toFixed(2));
     localStorage.setItem("TotalAmount", TotalAmount.toFixed(2));
     localStorage.setItem("TotalAmountBMS1", TotalAmountBMS1.toFixed(2));
