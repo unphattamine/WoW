@@ -299,9 +299,9 @@ window.onload = function() {
     }
 };
 
-function goBack(){
+/*function goBack(){
     window.location.href = "index.html";
-}
+}*/
 
 //SEND EMAIL
 function send_email(){

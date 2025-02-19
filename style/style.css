@@ -80,6 +80,7 @@ input:focus, select:focus {
     transition: background-color 0.3s ease; 
 }
 
+
 /*BUTTONS*/
 .azure-button:hover {
     background-color: #005A9E; 
@@ -231,4 +232,37 @@ tr:nth-child(even) {
     color: white;
     font-weight: bold;
     text-align: center;
+}
+
+/*POPUP*/
+.azure-popup {
+    background-color: #f3f2f1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.azure-title {
+    color: #0078d4;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.azure-content {
+    color: #333;
+    font-size: 16px;
+}
+
+.azure-button {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.azure-button:hover {
+    background-color: #005a9e;
 }
