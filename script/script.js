@@ -60,6 +60,7 @@ function calculatePrice() {
     let BargeInRequired = document.querySelector('input[name="BargeInRequired"]:checked');
 
     //OTHERS
+    let SSO = document.querySelector('input[name="SSO"]:checked');
     let customReporting = document.querySelector('input[name="customReporting"]:checked') ? document.querySelector('input[name="customReporting"]:checked').value : 'No option selected';
     let ContentSharingRequired = document.querySelector('input[name="ContentSharingRequired"]:checked');
     let RecordingsRequired = document.querySelector('input[name="RecordingsRequired"]:checked');
@@ -246,6 +247,7 @@ function calculatePrice() {
     localStorage.setItem("DTMFRequired", DTMFRequired.value);
     localStorage.setItem("BargeInRequired", BargeInRequired.value);
 
+    localStorage.setItem("SSO", SSO.value);
     localStorage.setItem("customReporting", customReporting.value);
     localStorage.setItem("ContentSharingRequired", ContentSharingRequired.value);
     localStorage.setItem("RecordingsRequired", RecordingsRequired.value);
@@ -447,6 +449,7 @@ function calculatePrice() {
     localStorage.setItem("DTMFRequired", DTMFRequired.value);
     localStorage.setItem("BargeInRequired", BargeInRequired.value);
 
+    localStorage.setItem("SSO", SSO.value);
     localStorage.setItem("customReporting", customReporting.value);
     localStorage.setItem("ContentSharingRequired", ContentSharingRequired.value);
     localStorage.setItem("RecordingsRequired", RecordingsRequired.value);
@@ -678,6 +681,7 @@ function calculatePrice() {
     localStorage.setItem("DTMFRequired", DTMFRequired.value);
     localStorage.setItem("BargeInRequired", BargeInRequired.value);
 
+    localStorage.setItem("SSO", SSO.value);
     localStorage.setItem("customReporting", customReporting.value);
     localStorage.setItem("ContentSharingRequired", ContentSharingRequired.value);
     localStorage.setItem("RecordingsRequired", RecordingsRequired.value);

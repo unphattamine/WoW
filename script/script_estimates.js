@@ -116,6 +116,7 @@ window.onload = function() {
     document.getElementById("DTMFRequired").innerText = localStorage.getItem("DTMFRequired");
     document.getElementById("BargeInRequired").innerText = localStorage.getItem("BargeInRequired");
 
+    document.getElementById("SSO").innerText = localStorage.getItem("SSO");
     document.getElementById("customReporting").innerText = localStorage.getItem("customReporting");
     document.getElementById("ContentSharingRequired").innerText = localStorage.getItem("ContentSharingRequired");
     document.getElementById("RecordingsRequired").innerText = localStorage.getItem("RecordingsRequired");
