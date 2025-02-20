@@ -311,6 +311,11 @@ function send_email(){
     window.open(`mailto:test@example.com?subject=CostGen Report&body=${encodeURIComponent(body)}`);
 }
 
+//GENERATE PROPOSAL
+function generate_proposal(){
+    window.location.href = "proposal.html";
+}
+
 //EXPORT PDF
 function downloadPDF() {
     const element = document.getElementById('pdf_results');

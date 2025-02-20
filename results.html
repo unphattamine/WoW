@@ -19,17 +19,130 @@
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7XSAAAeHklEQVR42u1dC5QcVZlOeBoIBPERCJOp6p4myXR1IjBC0tMTGBFRVESUgK6obET2oIKGR7ruhIVBEJbDUXwgEHGNZpOZnn4kRHajohJhBTyAoryUIJAHgmsAiQFCEsns/1dVz/SjuvtW1a2eHvJ959zT3dXVt25V3/ud///v/5gwAQAAAAAAAAAAAAAAAAAAAAAAAAAAABhn6O3t3+dY49LD5nX2HZNMmKd3J8SF3YZ5NbXvUlte3sTyVELc0m2kr+uOi4vmdZpndc8WyblzFredErtgfzxNAADUEtRR/YekOpfM606kzycSWpo0zHX0uoHaNiKkYXp1Wun78pYs/7yd2nPU7rVIjYiMXk9kEsTTBgDAM5KzxSwmqFTcXEVEtNmdjESDz5XfNTpfvEDtDmqLe2abXYbRvx/+CQAAXEEkEXWknbsdKcgj4cg04fJb137eSBnmH1jVTMbNo/HvAABg2aN6jPSpRAx5W8WTIZtax4QEIQkPpDbSdlH7ZcoQn2X1FP8aAOxhOHnOJQcmE+ZCIocHGpORqCFheSWeen0I2WNPdSfMJXMTfVPxLwLAmxy8M5dKiM/Rwn9YjiD8NuFTmhISfVjHnk0Z6ct7Z1z8dvyrAPAmRDIhPkwL/cGA6pmETarecTOA3cu1beDNga6u8/bFPwwAbwLM7bzsyO64mZEjARk7lV+y8atWSv3mnu7O9PH4twFgHKM7Idh3aks4al+93UPhk7CEX8KyjPOpePr6XqN/Mv55ABhH6DHS7bSAbwtRFfPpj6X62i4tkf5tT1zMxSwAgHEAkjJOoYW7sflk43c3Ucb47q2/pGG+Qq9fwGwAgBZGMiEucfyWQpJsZG1cQjFRCg+G/7Jzb0XMIgC0GHiXzA4yVi3pBDKEK7aV+SEyMZxKmD9PzVw8DbMEAFqCrNJTqu1VIoQdPBGSnUoo3o10bQ/P7bz0SMwWABhDsONkd8K8S86mJEKQkoL6cgmfKqVX1VIMJ+Ppp3uM9LswawBgjMgqZZi/9hbaEpa6JhRLW36yQUjZ2v4C0gKAJmNurP/gcslKBMisIEMSQpGRXqjyuQriDrGhZ5aYgVkEAE2xWZ23Ly26NY3tQSJkFU80179KrQT4OAzxANAEJOPmzeEGLQftV+UuogjTPePurq7+AzCjACAkpIy+RWoT6zVW+ZK+pCuhyMcqLHIbOXc5ZhUAhCJZ9b2XFtiOYL5Jyha6QqmtmZJctY9ayjAXYXYBgELM7+w7nBbXpmCkJBTFCvr1RFflFyaTCNCTK8eOHiPdg1kGAIrgzzE0iKOo8OnQKUJS+8KWGsUfu6LpKZhpABDYbmWeK1k+K6DUJBTsDIqANi2hyFPeR59xcRNmGwAEkaw6l2i0mF6Q95Vqhge7CJigTygm00akJe0LtjuV6HsfZh0A+CUsK1OoCMmHSQXBieHuUFPXCI9So2xMZI1zEuKRZHLRJMw8APBKVgnz5PDsOEIyY2jQawsfNrMwdxalNiMWY/YBgAc43uz3B/c4FyE4X4ph/1WehaIdRj/9ydrXxItz5yxuwywEAGnpKn127cXop4CEaELIi/BBdJxFIWyPeR9pbBLi25iFACABq3agXaY95O191aW4hEIjehg2NE/2rm09s80oZiMASElXYdimgqR3EQEM7GOZ+sa/+0TKEDdgNgJAHSxYsGDvxrYrv/mk/LgpqCoiIcaQlHzb8F7kCAPMSgCoJV0Z5oneqyurJCARote6uqKqyVBcKFz6jPddjFkJADXVQXNFeBkQhIJdwXpOql78n4QCKUi1D5lrXw8bRv9+mJkAUAHeSqcF8rK32L5m23mEApeIZuXREkrOn9dpnoTZCQDV6uAXwicj+YWcDIWUvIb9jLVx3qok/QPMTgCoANfPC75YRcvssoWTyVSlD5Z028w59DFDAcBBj5Fup8W0Ta0/lWgCEYRZEkx4qCwdhvpa4uLQKT6IWQoARXUwLv5VjQFZdbYEIeHdXp7xgJ0u6djfHHvcP71XlG4FH67KrKTiRsxSACiqg4ZYGdwJVEimmhGqd9OeoWPf606IT/fMNruOn3NZZG6ibypLjfQ6h8j4jFQ8fX1t7/2w/akUqKoJ8xHsFgLABA507j+AFsufw7ETiQDnNVrE4pFkom9h71H9h8jcJy/4ZEJ8uNtI3+l9RzKoIT+w5LljviHimK3AHo/k7PRsWhC7vIe3qEhw5zXkxmq7SOLo7zX6J/u85Ym2CmxuCe78GcZOovtzT8XNT2G2ArBfBYodVJlyWIrktiQN8wNK1OB42qD+fq8uB70fiVFedUZsIQAwYRnpr/vzElcVxyf9+xeSiSXdSm13MxdPo/t/yJukJRrY7UIpusp+aeswWwEQliHuUJOILmiWhLq/3ZmK950SjoR5aUfKMJ9vjjtGoJ3UjUSwB2HGAns6YT0RvkOn1x3DKqnmqjCfQSohPqbG7SLU57ijZ5aYgRkL7Okq4d/VxvgJ1Vv86wMY2L0Q9xpvtidZ+5sYlqs61JjYU4nFqKoD7OmEZb7RvFAVP5k4xeeb8RxSiSXvdt8t9eLUGkY20zIH0s9ixgJ7OmEpsrn4rc1Xt7/nksaiQ5v4LH7lzcakosKP/DNJGmkTMxYAYQWuGeg11lDaoL+8mc8iZfQtCi88qZHqJ5M2OQ3XBgCEVVtCEgp9snwVJ/18M59FT1zMdeIRFWwqiDBU7FsxY4E9nLBESLYqU9LeU1uam2eIVDOfxXGzxNu6jb4t4bo3yBTcqPGbhLkCMxaAhNUyrYy4tifjZqyZz6JX738LXX+zmh3SIJ7xNftZgxkLQMJSVsxBaY70l8agAvJEum6aiPJmTunSUi0hbkkmzIWYsQAkLGUZO1UWZTBfRTFRAABqEJYISFhi2FtMokRe9/ji4/APAQDgw4YlJB0mVUpgfefgHwIAwKOEFbS6s+9QH2zjAwAgI2H5UQOD1uKr6msDMhQAAFBKWLu9+wSJYfUplGv1l/4E/iUAAIqEtVWdW0Io5esf7Oo6b1/8UwAATBgtQCF82qlEgyycQesCcgyduQj/FAAATFh3eqj714yyXW5l619JxpfAxQEA9nSwF7V3CUo2rYzSwN8N8xKLO/GPAcAeDA73CBb3JxSkW5H7PhkXT8/r7DsG/xoA7KHgasn+s4768Wr3U9a+9FxO6dzctDMAALSKSjhz8UFckUXOtUH4DIr2W0S19jmphPnzpJF+P93CRPyLALAHgQggr96AHlQVlAn5sQjtgZQhLk/OFiccn1gyfW6s/+AFCxbs7fdZGIYxWdf1Q6LR6JQgLRaLHUx97TdeCbWtrW1Se3v7W2XulZ/XzJkzDyq51734/mWfFf8eqxCQJ6xE+vyQaumFVO+wJjFutbzjDXGtz0cxMarrP+5o1zd1aPoGq+lO0yTb6LnPUHusQ9MeoPZzOr6U+r2QFuixvKBbfU7EdP1KGvfmxvcb4deN0Xb9LiY5/i0R0GH2vesbpZ4ZPW+sQkDejjVLzKCF/no42UbNJhVqKPHbSvRlfROWpj9Ei2jYV9NdPlcf280kFtMi57YyccU0/SaP979x2rRpB/BvZ7S1HUGft9d9LhXPCKsQ8LRQU4b5a7mCp0JRQQqhMA9XRfOfSngiLZ77RxdSZNg3ebkt1Oq2tqOj452tOCGIVL8tRcgjn7Uni4Q1c/r0afTd1prPxOW5YAkC3tTCuHmxevtTPUO6UJHNwZ3YVBCWLBHpUsRUr6+7iwu9pQlLb0TEFYSlOYQl83wgYQGe1cLZZpSzfPrLjyU8GM7FcPCSWe5klVRFWF5JSA8mgUV13Wx5wmp4r3UIS+JZYAUC3qUsw7xNrR+Wl8o5ppK4QyUqoSwBscqoK1ETn5ozdeqBLUtYusx91CAsSekUqw/wLmUZ6VO9ZwwVCh1JheS5TbBhyZKPrkb6ikyPzG85wnJTA3VJwiq1YemQsIAQYJe5Mh9VK115UQP9hPmI8IzucoT1O2pr6POd1J6Vl0iqpI0Lx4VKqHlUCTWohECYauGIT5YYVltRxwxgkBeSElhIEpab6ud8jun6acUft7W1HcruCl4Xq2PH+oaXgTIp0LVPiGna56j10Xiu62jXb7Eavedj1nd0jqZph4dCWHrpbmoDwmpgtMfKA/xJWUb/ZFr064NLQ6ptXR6KXoSpEurlizXWHjmjarHr+ll0zhtlhNdg8ROx3NRocOw9zoRI595B13hB3n6mbYm26z+LatpCxyMdEhbwpjK+f0GpX1RgdVI03w9Lk3ICZcJaUEX6vb37xDT9jx6N8TfXJav2yJl03p+C7lryuLgvz4Slg7CAFkVXV/8BtPD/GLxAhR+nUe9EmKzaJRRqCEtvvGDdCMte8JH/9khY19UkD1b3akh4ft0pYu36tb4lLFf1GG4NwBgileg7M5wyXiKAQV3SC1+VhCWx2GoRlqW2uamDNYiG+vl0jX6ulDTae/cLi0SurktYnkgREhYwpujfiwjgp34qNqvzYPe5ixiWSujy3o2w2E40smMo5yG/PTZ9ekdlP9H26En03e5AoUF6Q9vZ+6UlLF0RYcHoDoSB+YaIEwls859Zwa8RXgST3JTvEtYlhY+6SEXX1o+7q5K8ClV2sAm9+9Dx+xqSj5sE5yGsiIO9Y7HY/oGM7roXx9EIQnOAUA3waXXFU2WJym9Ij9kcCavcHeF8WvBt0Wh0Brs4MPl4jMHbFmtvN6pILxI52bsDqvZIhxZ5kN7/U0rSKrpmTI98RLlKqEuohPB0B9Qb4M/blwjgLn+hM8KHlKSAAJu1S+ioc9Repvaap107+9jrUU37uKvtStP/04MT6ut07LNOwsC9iTxOpGPPNZawRqSdgUASVi2VUJcPY8JKA5QhOVvMIiJ50b+qJzx6xAeswBOWH5auLsUMEdLvmVjcBsELnwlAtj9WQavsX0SEZfYvvc542vVNnGlV2oal+yAsGN2B5u4ammcFc20Qw+ElCAwjNCfSYIF6CLux22tOBs617MBZL6UMq4h03k5JstxB58er+ojF9qffrJcc7xsxTTvGl9FdD2B010FYQJikZYhrve/6iRBSKjewcYUpYekNjfC1vruvoz1ywUxNizQaBBvyPUhxz7Aa6L7T59jTJMYba4+c7UpYcGsAxi/690oaohBeuE2QRIFibLI1eDeMb+NAaZKyPjWhRoGKDi3yJS+piSORyHxqx1U2UvV+Ku1Ppml9NSUsHYQFjFsjfHoKkcI9/rMy+Cm0Ksbe6K75lqzqbe3/pKOjY7oLYV0dKDWz1Hgq3Qu07yg3unsgdawsIDTMTfRNJWJ4OLjhXSiuyBMCYTVwSyDJ5KIjI5Hj2QEzqutf4eoxHr3QH60kraoCELqCDYCGfWjLPRGWnwR+2CUExgrHz7kskjTMx4JVcfYTsiPx+zD9sKoXareLhHSZR4noJxNKKuiQKvdD6YwR8vm26n5PKmquLmHpAd0aoBICYw0nD/yjtR08hQejuUIpq5lFKGq4JhBp/cJTTGKJ86Y0YWmS3u/1xjB6fHUoKqGkNz5WE9AUzO/sO5wI4r7gAdF+S4kJ9TndvS1UV8KKaZEveqy+s8aVsBq7Vuy2HEdtB9bX/TVtF6mhP3AlLF2XdO8IkK0BoTlAkyWttxJRrFFWRELK3iVqZyRVkV5Gl3aYdCUsUrE+5JH4NhdLtke1yHc9/HYD+1CxLxb7b9VuMadVfxeJROYwyYQmYUkQF1YR0FT09vbvkzLSN6jZJRTBwnxU5cOSshnVkLDaI6d6NFrvirZFZzvq5Nc8VJJePyGECtJVRSj8huYgHxbQykgm+hYSaWz1X2+wRWMJPauE2kXed+xsAz47mHpQJdeHUYi1odHdyy4hquYArYxuo+8oIo571RSvEM0v86V7SYhXy+hekhpG0h4VbY/2OGRxugeye7aoSrpIeWdSX1+NtutXWE13Xive0zlXVabJqfJ0D7JL2NjgD8ICxljSSi6aRORxNbUdQSs6ezsuwkmRXEMti+n6vNIOuCAqV8BpvDtXvZMXnR491iKL6R2JqljC2m3HkZrWWUVWHEvYrm+qKyGVEYp2vXIbVvEe9cYSGlYM0CIq4pJuIpK7g6U+bhG3Br2ytJW1UK9ilwQ6dg4vejr2mGcHT/ucfxTjDNva2ibVzNbgnjX0yioJzxqPF7cI7XTlNizsEgLjEQsWLNjbrncoNgazWQm5ohbNsGGVSki6kjCaR518VjZhyPhi6UWnT/0VrkEYjUansITH5BPT9Bc9uFW8FIlEpiqXsDx44GOVAC2H+UeLd6SM9OVEKn+TcVdIxn1mdlBtw2pKyfryWL6qjKMyfZMKSOT1tHciLQ/LqZKwdBeC9hSaE4ENCxi/mDtncVt33LyCyGVT8HTKIRah0FVkZ6hfiNU5vpMknHeVDqSrq2tfzzuWusfrF/NpadrRroTliahlc7q7Ex5WBdDycBxOzxvdUfQSIC1qZypV7YeliqBqZEuIapGvuw3GqZozrKTp8vavUFVCHSohMP4xcZ4hUknD/AYRzvrA5cKUZBwNKbWLXvU65Fa1poQ4vqo0a0PFtSfUTP6nyOiuIb0M8CaGU3X6RCKi65wYxa1y6uEYlfnyT2Svskc7l7VvNChn99E9qNmPJKhbOeVvKjXyhyZh6XAcBfYgzJtl6t3x9GnJRN81JIGtJWJ6ktrWBruMed+EVemW0GiXUDbVi924/NafYu36DdGoHYYji6iuf5J/K+WmoNf19/pDLBI5Q4Ikv+eRFJ/nHUprw+CIWFttfy8QFrAH4eQ5lxzIJJaKi/mphPhYKm5+iUjrKieO8VZqy4jgLvDbPy3UJVEt8n16vbW8RW6tPla7cR/RSOTGDj16XbRdT7PXORu32cfK79hIdTw4pkXOpYXPqY9f8CABPUu/ydIYzpC9PhOkXWpM8l7b9WuKEht73vOup+yz4utgZgPAmxiaph3ORnkmMCKXy1mF4ywPVqYHXf8m52jnWoUcn0gkdSieGAAAAAAAAAAAAAAAAAAAANB0LF26dN9sNjt52bJlb8HTmDChv79/r9tvv/0AbsPDwxPxRACghTA4lP8itWcGhgo/wtOYMGEgn581mMk/Rc/kkcHBNdPwRACghZDJ5i+nxTk8MJS/028fJKHFqZ+HM0P5/6H3k8bNvQ/lvk1jfpju/czisZXZ7FH8PLitLBQ0zBAAaC3CWmIt0Gz+Z777yBSOtRd57i/Lly8/cPwQVv6nFllnciOOt4ODq3UmXmp5It93YIYAQEsRVjYwYY1IJaRKjSdbGBHsGoew/g0zAQDGKWGRZLE3G+LZ8Myf2RBNUtQ8Up0+PjiYm0/f7Vc8j88ZyGZ7HDXqaZZK+Lfr1q0bCXJmEqPf9fLv6dzk2rVr968nrdnXyc8tGc/kUiM4bxSsWLHi4FJypHOOYOmo5PNhdM33OmN+749WrXpb6XhYEmRJisdNUuaXuX9WZxsZ3S0bV7bwkUwmd9rAQN5wuwenr8klY5lJ4/go/eYUSG0AoFglJLI4mg3xJIHk7AWa/03RruO0+y3VKbO6wznvr3QOH99FbTOrhkW7EBMPHfs9HRv5fWao8CBJZV2l42CCKRLISMvmbyOy6R7M5NYPDhV+VSRQWvifIWluAx27wiKmodwqOn8btceZcOjzJfTdSxVj3kRj+qQtWeVv5jHS62vOdy/yuOn6P16Zzx9pXS9LYx4cHDG6/1ehcDhdM0Pn/bOkz930m9Wlti4mPbYHsrTJ90j93FQxjmcHs9kzMPMAwDdh5coIa2iokHIW19/o+HP0+mdq19sLnYmBz8/dxpKDTRz5F5zz37DIayj/PEkhp69cufKtNoFZ5FMgEvkavf7OOffP/P2IBDeUtaWdofzfbWN44Rb6vJPak8WFXrSPDWQKX7E3CgqDTGTO91vp2nfQdc9yNhH+QWMjsshdZRGIfc52JtmBTP6b9J7va/vIuUxg2fztmcyqhDPeHXR/7UWJia5zb9FOR6/foj6+bpM1jzn3EJ07ZfRc557t3cbX6PX7dM519LreGcfLmHkAoIiwWG0blYbyq0sN6bS4zy4ucl7QlkQxohLmtvCxUWLJX+n0c32JBDKFJSGbFArn2Ndb9b4i6ZBUclzJOE60SdAmuBLCumCUaIgss4V/YQmI1TCbGGncudynyuxV2fw6p59FrFKOqoS5YVaL+T5YVVyRzc4e6XvwtunOMzrf+e1mOi8yKomumVYkVDrHLCGsJ0ekOpJQR89frRPxbeHvMPMAQJFKWEJY22mBxspsOANrptLxV1kdKtpwRl0BCluKUhPbsGjR/4mlJFazysiDpB6nfyvNCkkeS0s/VxBNoRZhWUSRyZ1Wdj8WCRVeYleLimte45DqNaN9O0b3odzFxWOlhLWiUGizf1v4X9s4n7/S5fl92RnLb1lStOx1DmENZHLnVt3PUO6XICwACEPCIpWm0q+KPh/q2Id2F0nBstXYEtOWgYGBt1t9sO3Llo4280IuJ6HCOQ5J/sImmcKDDkmcXT2+wnnFsbgQ1uNs+K8YHxv9j2ApqpwoLJWWSefqEnL7sSMdXVpNWDmWIA9zJEJL5SVV+T1V48sUjnHG8grbvJioHRV6mO1vVec7djrMPABQL2E9Ubmjx7ttbGdyJayhUcKixX2S08dGUvlO5N1Fp3UzaTjXvGfNmjUHOXYhV0Kg336gFmHx4m90fw7hLHRsVixhXeWBsN6Ryaya4Rjad7HNrrJ/lsJG7HqD+aN5Z9GxXfHnd7tIjGtBWAAQBmFl8usr/apkCYtUtU9U7I4Nl+4UFvtnldPpz32B8y6hff4zo4SVKxJWzdTQDvFcb9mM7B3Mnd4IK/8P615HnGLzW4s2rcrnQf0/70hUvY6K+5StrhaOdSWsLAgLANQTVtY/YTlSzbCjPt5o78zlvsU7bHTNb2aGcjfQ60XWrp1tPN/NZFFH5XqmSiXM5guV55e4HzgEWfgV+z8NZnO3+yEsJtF6hMX3S31ahEXP7QQpwoKEBQB+CSvrU8LKNZKwFjgL/7EGKtsRvM3vLPhktUqYPaHolFopYVUSlm0/yt1RNIIXCcQmUNvAXkZY2fqEVaIS7rbUvloSlu3KUaUSgrAAYJwQluWSYKtiT1T2wYb7lUP5D/J1HDeATY4N66TqBV74kNVPqQ0r5y5hsUuEfc3cK5X2pqI0VS5hZWsQVs4iLN4R5fthexbbsUpdFEZV1tumOw6oO9nlwXJcBWEBwPiyYY3uEuZGXB2qpKZs/jfOIr7HkYo+XyVhWU6iOfddwgrCGtl9HMo/Url7aHnNZ72phCz9cT+Oewbvgn6ojo1tkxOSsx8ICwBajbCyo4Q1mC/aeXJ/LZ7PC52lK8cYPb+chHLnOv2vtIkjd4Ntb8rlXBb43TX9sLK5Qrm9yzb0M8GUEha7OIw6c+auKOnbsWvlL3QjrKIKSOctc8a7tGp8ucJ/OP2ucu57kk1YORAWALSihOXEHvLC38YxhLxbZnmdD+Uuc3y81hWT4WUyqzqLRMaByRVSyk62fbEdiKWVYq6uKsKqoRKW7Ojt5NAgh0CmZIYK3y2JY7yl2E/RKXVgqLCCx8xk5YTm7C4jrFxu/mhoT26Bk6V1b0tdtUKCrHv5KJ9rqbiQsAAgHJAa91VnMf66hLB6HBeE5ysdR+1dMTtchhc3H1u+atU7befKUbcFWsCnMmmx0b0YYOw4iO4oBjaXZnQo8XYftoOl8xut97n8gGX0zpaohEO5ix2p5icVtrH9RiWyHLs9PETv/49tTERKi0eDqgtZ596vqHC7uJdJ2C2BH+9ulpz7uJWRdNQ9Y1kxswOP0YrBtAlrXpWKO5S/C4QFAH4lrEzuwxwSwzF2o8dWd3DALoexVHqMW5JTJv8d6/uSFMLs4EmEdCv3ReTwA5a6nPPb6dgPHeJ43fYCL3ytmHnBRdp7wjrPDqpeODRUOL7SLmU7peZ4zF+s7INJxg6KtnbuOLj5fiZgm3Ry/86hMUVvd9uplMOEctaY2c2C3SJIReX7uJE3B4r9Wrt/nE46m3/A8mofyr9qZystLC4lXiZN6v9afj6lcYflNrk8Kj8DQCuD81exEdstFxZLbbyrxwufF7xj7J5kkxiH5uRGbESyWLZ69SFMPmHcC+8ecthOZcgRAAB7hh3tS5bal8lnSo87xvL7SjM7AAAAjLFamukcsW2RKsbGbE62N+IESmqYmwoJAAAwRqSV+wwR08tV8YfZ/G/YpoYnBABAi5FW4RjLYJ3LD3CdRDZyVzqdAgAAAAAAAAAAAAAAAAAAjBX+H7vdKZ3PNJtHAAAAAElFTkSuQmCC" alt="bell">
     
     </div>
-    <h1>Proposal for <span id="fcustomer"></span></h1>
-    <p class="result"><strong>Bell Reference:</strong> SF033203</p>
-    <p class="result"><strong>Author:</strong> John Doe</p>
-    <p class="result"><strong>Owner:</strong> Head of Service Management Office</p>
-    <p class="result"><strong>Document Date:</strong><span id="documentDate"></span></p>
-    <p class="result"><strong>Classification:</strong> COMMERCIAL IN-CONFIDENCE</p>
+    <h2>Warnings</h2>
+    <div id="warning"></div>
     <br>
-    <p class="result"><strong>Customer:</strong><span id="fcustomer1"></p>
-    <p class="result"><strong>Name:</strong><span id="fname"></span></p>
-    <p class="result"><strong>Mail/Phone:</strong><span id="fmail"></p>
-    <h1>Summary</h1>
+        <h2>Summary Calculations</h2>
+        <!--<p class="result"><strong>Elapsed Kick-off Timeline:</strong><span id="kickoffTimeline"></span></p>
+        <p class="result"><strong>Elapsed Solutioning Timeline:</strong><span id="solutionTimeline"></span></p>
+        <p class="result"><strong>Elapsed Development Timeline:</strong><span id="devTimeline"></span></p>
+        <p class="result"><strong>Elapsed UAT Timeline:</strong><span id="UATTimeline"></span></p>
+        <p class="result"><strong>Elapsed Hypercare Timeline:</strong><span id="HypercareTimeline"></span></p>
+        <p class="result"><strong>LOE Solutioning:</strong><span id="solutionLOE"></span></p>
+        <p class="result"><strong>LOE Development:</strong><span id="devLOE"></span></p>
+        <p class="result"><strong>LOE UAT:</strong><span id="UATLOE"></span></p>
+        <p class="result"><strong>LOE PM:</strong><span id="PMLOE"></span></p>
+        -->
+        <table>
+          <tr>
+              <th>Timeline</th>
+              <th>Elapsed Time</th>
+          </tr>
+          <tr>
+              <td>Kick-off</td>
+              <td><span id="kickoffTimeline"></span></td>
+          </tr>
+          <tr>
+              <td>Solutioning</td>
+              <td><span id="solutionTimeline"></span></td>
+          </tr>
+          <tr>
+              <td>Development</td>
+              <td><span id="devTimeline"></span></td>
+          </tr>
+          <tr>
+              <td>UAT</td>
+              <td><span id="UATTimeline"></span></td>
+          </tr>
+          <tr>
+              <td>Hypercare/GoLive</td>
+              <td><span id="HypercareTimeline"></span></td>
+          </tr>
+      </table>
+      <p class="justified-text">The estimated timeline for project completion is approximately <b><span id="totalTimeline"></span></b> from the Project Kick-off date. </p>
+      <table class="timeline">
+        <tr>
+          <th>Role</th>
+          <th>KickOff</th>
+          <th>Solutioning</th>
+          <th>Development</th>
+          <th>UAT</th>
+          <th>Hypercare<br>GoLive</th>
+          <th>Total</th>
+        </tr>
+        <tr>
+          <td>TBA</td>
+          <td><span id="TBAkickoff"></span></td>
+          <td><span id="TBAsolutioning"></td>
+          <td><span id="TBAdevelopment"></td></td>
+          <td><span id="TBAUAT"></td>
+          <td><span id="TBAHypercare"></td>
+          <td><span id="TBATotal"></td>
+        </tr>
+        <tr>
+          <td>SA</td>
+          <td><span id="SAkickoff"></td>
+          <td><span id="SAsolutioning"></td>
+          <td><span id="SAdevelopment"></td>
+          <td><span id="SAUAT"></td>
+          <td><span id="SAHypercare"></td>
+          <td><span id="SATotal"></td>
+        </tr>
+        <tr>
+          <td>CIE</td>
+          <td><span id="CIEkickoff"></td>
+          <td><span id="CIEsolutioning"></td>
+          <td><span id="CIEdevelopment"></td>
+          <td><span id="CIEUAT"></td>
+          <td><span id="CIEHypercare"></td>
+          <td><span id="CIETotal"></td>
+        </tr>
+      </table>
+      <table class="resources">
+        <tr>
+          <th>Resource</th>
+          <th>LOE hours</th>
+        </tr>
+        <tr>
+          <td>TBAs</td>
+          <td><span id="TBATotal1"></span></td>
+        </tr>
+        <!--
+        <tr>
+          <td>TBA2 (optional)</td>
+          <td>0.00 hrs</td>
+          <td>0.00</td>
+          <td>0.00</td>
+          <td>0.00</td>
+        </tr>
+        -->
+        <tr>
+          <td>SA</td>
+          <td><span id="SATotal1"></td>
+        </tr>
+        <tr>
+          <td>PM</td>
+          <td><span id="PMTotal1"></td>
+        </tr>
+        <tr>
+          <td>CIE</td>
+          <td><span id="CIETotal1"></td>
+         </tr>
+        <tr>
+          <td>PRM</td>
+          <td><span id="PRMTotal1"></td>
+        </tr>
+        <tr>
+          <td><b>Total</b></td>
+          <td><b><span id="TotalHours"></b></td>
+        </tr>
+        <tr>
+          <td><b>Total with enablement</b></td>
+          <td><b><span id="TotalHoursEnablement"></b></td>
+        </tr>
+      </table>
+      <br>
+      <h2>Webform summary</h2>
     <table id="tableSummary">
       <thead>
         <tr class="header-row">
@@ -220,7 +333,34 @@
         <tr>
       </tbody>
     </table>
-    <!--
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div style="display:none">
+    
+      <h1>Proposal for <span id="fcustomer"></span></h1>
+    <p class="result"><strong>Bell Reference:</strong> SF033203</p>
+    <p class="result"><strong>Author:</strong> John Doe</p>
+    <p class="result"><strong>Owner:</strong> Head of Service Management Office</p>
+    <p class="result"><strong>Document Date:</strong><span id="documentDate"></span></p>
+    <p class="result"><strong>Classification:</strong> COMMERCIAL IN-CONFIDENCE</p>
+    <br>
+    <p class="result"><strong>Customer:</strong><span id="fcustomer1"></p>
+    <p class="result"><strong>Name:</strong><span id="fname"></span></p>
+    <p class="result"><strong>Mail/Phone:</strong><span id="fmail"></p>
+    
+    
     <p>Develop Autopilot conversational AI for Purchase Exchange Redemption use-cases</p>
     
     <table>
@@ -278,7 +418,6 @@
     </table>
     <h2>Quality Statement</h2>
     <p class="justified-text">This is to certify that the attached documentation has been produced in accordance with the Bell Microsystems Ltd, trading as Bell Integration, integrated management system risk assessment process and has been approved for release. It has been written in commercial confidence and is copyright protected.</p>
-  -->
     <h1>Introduction</h1>
     <h2>About Bell Integration</h2>
     <p class="justified-text">Bell is a privately owned, and truly vendor independent organisation, our people are dedicated to helping our customers reduce cost and risk, while improving agility and the service our customers IT teams provide to their end user stakeholders.</p>
@@ -290,7 +429,7 @@
     <h1>Engagement Approach</h1>
     <h2>Scope Of Work</h2>
     <p class="justified-text">This section outlines the scope of work for developing Autopilot self-service use cases.</p>
-    <!--
+    
     <p class="justified-text">•	Developing Autopilot for <b><span id="channels"></span></b> channel,  interaction in <b><span id="productLanguage"></span></b> language(s)</p>
     <p class="justified-text">•	Development of Autopilot API integration to provide interface with SS&C “DST’s TA2000” system
     <p class="justified-text">•	Develop Autopilot conversational flows that includes authentication, greeting, pre-escalation and goodbye messages</p>
@@ -301,47 +440,9 @@
     <p class="result"><strong>Company</strong> <span id="fcustomer"></span></p>
     <p class="result"><strong>Name</strong> <span id="fname"></span></p>
     <p class="result"><strong>Phone/Mail</strong> <span id="fmail"></span></p>
-    -->
-    <h2>Warnings</h2>
-    <div id="warning"></div>
-        <h2>Summary Calculations</h2>
-        <!--<p class="result"><strong>Elapsed Kick-off Timeline:</strong><span id="kickoffTimeline"></span></p>
-        <p class="result"><strong>Elapsed Solutioning Timeline:</strong><span id="solutionTimeline"></span></p>
-        <p class="result"><strong>Elapsed Development Timeline:</strong><span id="devTimeline"></span></p>
-        <p class="result"><strong>Elapsed UAT Timeline:</strong><span id="UATTimeline"></span></p>
-        <p class="result"><strong>Elapsed Hypercare Timeline:</strong><span id="HypercareTimeline"></span></p>
-        <p class="result"><strong>LOE Solutioning:</strong><span id="solutionLOE"></span></p>
-        <p class="result"><strong>LOE Development:</strong><span id="devLOE"></span></p>
-        <p class="result"><strong>LOE UAT:</strong><span id="UATLOE"></span></p>
-        <p class="result"><strong>LOE PM:</strong><span id="PMLOE"></span></p>
-        -->
-        <table>
-          <tr>
-              <th>Timeline</th>
-              <th>Elapsed Time</th>
-          </tr>
-          <tr>
-              <td>Kick-off</td>
-              <td><span id="kickoffTimeline"></span></td>
-          </tr>
-          <tr>
-              <td>Solutioning</td>
-              <td><span id="solutionTimeline"></span></td>
-          </tr>
-          <tr>
-              <td>Development</td>
-              <td><span id="devTimeline"></span></td>
-          </tr>
-          <tr>
-              <td>UAT</td>
-              <td><span id="UATTimeline"></span></td>
-          </tr>
-          <tr>
-              <td>Hypercare/GoLive</td>
-              <td><span id="HypercareTimeline"></span></td>
-          </tr>
-      </table>
-      <!--
+    
+    
+      
       <table>
         <tr>
             <th>LOE</th>
@@ -364,7 +465,7 @@
             <td><span id="PMLOE"></span></td>
         </tr>
     </table>
-    -->
+    
     
         <p class="justified-text">The estimated timeline for project completion is approximately <b><span id="totalTimeline"></span></b> from the Project Kick-off date. However, the successful delivery of the project is contingent upon several critical factors. These include timely access to the domain, available of API endpoints, and effective coordination between NICE, end customer and Amelia resources. Ensuring these elements are in place will be essential for meeting the projected timeline and achieving the desired outcomes.</p>
         <p class="justified-text">This project will be executed in four key phases: use-case discovery, development, implementation, and testing. The timelines and costs associated with this project are derived from the following resource estimates necessary to complete each phase: </p>
@@ -406,7 +507,7 @@
             <td><span id="CIETotal"></td>
           </tr>
         </table>
-        <!--
+        
         <table>
             <thead>
               <tr>
@@ -441,7 +542,7 @@
               </tr>
             </tbody>
           </table>
-        -->
+        
         <table class="resources">
           <tr>
             <th>Cost/resource</th>
@@ -583,8 +684,10 @@
 
         <h2>Additional Notes</h2>
         <p class="justified-text"><span id="fnotes1"></span></p>
+      </div>
         <br>
         <button class="azure-button" onclick=history.back()>← Back</button>
+        <button class="azure-button" onclick=generate_proposal()>Generate proposal</button>
         <button class="azure-button" onclick=send_email()>Send as Email</button>
         <button class="azure-button" onclick="exportHTMLToDocx()">Export DOC</button>
         <button class="azure-button" onclick="downloadPDF()">Export PDF</button>
