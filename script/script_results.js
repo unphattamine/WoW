@@ -280,10 +280,9 @@ window.onload = function() {
     } else {
         //console.log("channels verified - OK");
     }
-
     //IF CHANNEL EMAIL & NO INTEGRATIONS
-    if(integrations == "false" && channels.includes('email')){
-        //console.log("channels verified - FAIL");
+    if(localStorage.getItem("integrationRequirements") == "false" && channels.includes('email')){
+        console.log("channels verified - FAIL SMS");
         let message = document.createElement("p");
         message.innerText = "⛔ We can not deliver email channel without email or API integration. Please discuss the implementation possibilities with technical team";
         message.classList.add("outofscope");
@@ -291,7 +290,7 @@ window.onload = function() {
     } else {
         //console.log("channels verified - OK");
     }
-    if(integrations == "false" && channels.includes('SMS')) {
+    if(localStorage.getItem("integrationRequirements") == "false" && channels.includes('SMS')) {
         //console.log("channels verified - FAIL");
         let message = document.createElement("p");
         message.innerText = "⛔ We can not deliver SMS channel without SMS or API integration. Please discuss the implementation possibilities with technical team";
