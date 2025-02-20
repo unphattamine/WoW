@@ -8,6 +8,7 @@ window.onload = function() {
 
     //NOTES
     document.getElementById("fnotes").innerText = localStorage.getItem("fnotes");
+    document.getElementById("fnotes1").innerText = localStorage.getItem("fnotes");
     
     //CUSTOMER
     //getting all elements with the id fcustomer, not recommended really
@@ -30,10 +31,12 @@ window.onload = function() {
     document.getElementById("UAT").innerText = localStorage.getItem("UAT");
     document.getElementById("UATTimeline").innerText = localStorage.getItem("UATTimeline") + " weeks";
     document.getElementById("totalTimeline").innerText = localStorage.getItem("totalTimeline") + " weeks";
+    /* LOE TABLE
     document.getElementById("solutionLOE").innerText = localStorage.getItem("solutionLOE") + " hours";
     document.getElementById("devLOE").innerText = localStorage.getItem("devLOE") + " hours";
     document.getElementById("UATLOE").innerText = localStorage.getItem("UATLOE") + " hours";
     document.getElementById("PMLOE").innerText = localStorage.getItem("PMLOE") + " hours";
+    */
     document.getElementById("PMTotal1").innerText = localStorage.getItem("PMTotal1") + " hrs";
     document.getElementById("TBAkickoff").innerText = localStorage.getItem("TBAkickoff");
     document.getElementById("TBAsolutioning").innerText = localStorage.getItem("TBAsolutioning");
@@ -283,7 +286,7 @@ window.onload = function() {
         //console.log("channels verified - FAIL");
         let message = document.createElement("p");
         message.innerText = "⛔ We can not deliver email channel without email or API integration. Please discuss the implementation possibilities with technical team";
-        message.classList.add("message");
+        message.classList.add("outofscope");
         document.getElementById("warning").appendChild(message);
     } else {
         //console.log("channels verified - OK");
@@ -292,7 +295,7 @@ window.onload = function() {
         //console.log("channels verified - FAIL");
         let message = document.createElement("p");
         message.innerText = "⛔ We can not deliver SMS channel without SMS or API integration. Please discuss the implementation possibilities with technical team";
-        message.classList.add("message");
+        message.classList.add("outofscope");
         document.getElementById("warning").appendChild(message);
     } else {
         //console.log("channels verified - OK");
