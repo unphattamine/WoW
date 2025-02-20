@@ -68,20 +68,19 @@ input:focus, select:focus {
     box-shadow: 0 0 0 1px #0078d4;
 }
 
+/*BUTTONS*/
 .azure-button {
     background-color: #0078D4; 
     color: #ffffff; 
     border: none; 
     border-radius: 2px; 
-    padding: 10px 20px; 
-    font-size: 14px; 
+    padding: 8px 12px; /* Reduced padding */
+    font-size: 14px; /* Reduced font size */
     font-weight: 600; 
     cursor: pointer; 
     transition: background-color 0.3s ease; 
 }
 
-
-/*BUTTONS*/
 .azure-button:hover {
     background-color: #005A9E; 
 }
@@ -172,6 +171,7 @@ input:focus, select:focus {
     margin: 10px 0;
 }
 
+
 .assumptions {
     background-color: #d9f5ff;
     padding: 10px;
@@ -252,7 +252,7 @@ tr:nth-child(even) {
     color: #333;
     font-size: 16px;
 }
-
+/*
 .azure-button {
     background-color: #0078d4;
     color: white;
@@ -265,4 +265,4 @@ tr:nth-child(even) {
 
 .azure-button:hover {
     background-color: #005a9e;
-}
+}*/

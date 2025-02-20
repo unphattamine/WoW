@@ -311,9 +311,9 @@ function send_email(){
     window.open(`mailto:test@example.com?subject=CostGen Report&body=${encodeURIComponent(body)}`);
 }
 
-//GENERATE PROPOSAL
-function generate_proposal(){
-    window.location.href = "proposal.html";
+//GENERATE ESTIMATES
+function generate_estimates(){
+    window.location.href = "estimates.html";
 }
 
 //EXPORT PDF
