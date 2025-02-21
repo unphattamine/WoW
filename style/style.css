@@ -256,11 +256,11 @@ tr:nth-child(even) {
 .invisible-input {
     border: none;
     background: none;
-    color: black; /* Make the text visible */
+    color: black; 
     cursor: default;
     outline: none;
-    width: 400px; /* Set a width to allow typing */
-    height: 20px; /* Set a height to allow typing */
+    width: 400px; 
+    height: 20px; 
     font-size: 16px;
     padding: 0;
     margin: 0;

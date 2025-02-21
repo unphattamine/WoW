@@ -73,7 +73,7 @@ function calculatePrice() {
         console.log("UCs <=6")
         //TIMELINE FORMULAS
     let kickoffTimeline = config.elapsedTimeKickoff;
-    let solutionTimeline = (1*complexUCs) + (0.75*simpleUCs) + 2;
+    let solutionTimeline = (1*complexUCs) + (0.75*simpleUCs) + 3;
     let devTimeline = (2*complexUCs) + (1*simpleUCs) + 2;
     let UATTimeline = (1*UAT);
     let HypercareTimeline = (1*Hypercare);
@@ -84,24 +84,28 @@ function calculatePrice() {
     let solutionLOE = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) + (0.5*3*5*8);
     let devLOE = devTimeline*5*8;
     let UATLOE = (5*8*UAT);
+    
     let TBAkickoff = 0.5*8*5*kickoffTimeline;
     let TBAsolutioning = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) +0.5*3*5*8;
-    let TBAdevelopment = devTimeline*5*8;
-    let TBAUAT = UAT*5*8;
-    let TBAHypercare = Hypercare*5*8;
+    let TBAdevelopment = devTimeline*5*8*0.5;
+    let TBAUAT = UAT*5*8*0.5;
+    let TBAHypercare = Hypercare*5*8*0.5;
     let TBATotal = TBAkickoff+TBAsolutioning+TBAdevelopment+TBAUAT+TBAHypercare;
+
     let SAkickoff = 0.5*8*5*kickoffTimeline;
     let SAsolutioning = TBAsolutioning*0.25;
     let SAdevelopment = TBAdevelopment*0.1;
     let SAUAT = 0;
     let SAHypercare = 0;
     let SATotal = SAkickoff+SAsolutioning+SAdevelopment+SAUAT+SAHypercare;
+
     let CIEkickoff = 0;
     let CIEsolutioning = 0.5*5*8;
-    let CIEdevelopment = TBAdevelopment*0.5;
-    let CIEUAT = TBAUAT*0.5;
-    let CIEHypercare = TBAHypercare*0.5;
+    let CIEdevelopment = devTimeline*5*8;
+    let CIEUAT = UATTimeline*5*8;
+    let CIEHypercare = HypercareTimeline*5*8;
     let CIETotal = CIEkickoff+CIEsolutioning+CIEdevelopment+CIEUAT+CIEHypercare;
+
     let PRMTotal = 10*totalTimeline;
 
     let TBACost = TBATotal*config.avgCostTBA;
@@ -286,24 +290,28 @@ function calculatePrice() {
     let solutionLOE = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) + (0.5*3*5*8);
     let devLOE = devTimeline*5*8;
     let UATLOE = (5*8*UAT);
+
     let TBAkickoff = 0.5*8*5*kickoffTimeline;
     let TBAsolutioning = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) +0.5*3*5*8;
-    let TBAdevelopment = devTimeline*5*8*2;
-    let TBAUAT = UAT*5*8*2;
-    let TBAHypercare = Hypercare*5*8*2;
+    let TBAdevelopment = devTimeline*5*8*0.5;
+    let TBAUAT = UAT*5*8*0.5;
+    let TBAHypercare = Hypercare*5*8*0.5;
     let TBATotal = TBAkickoff+TBAsolutioning+TBAdevelopment+TBAUAT+TBAHypercare;
+
     let SAkickoff = 0.5*8*5*kickoffTimeline;
     let SAsolutioning = TBAsolutioning*0.25;
     let SAdevelopment = devTimeline*0.1*5*8;
     let SAUAT = 0;
     let SAHypercare = 0;
     let SATotal = SAkickoff+SAsolutioning+SAdevelopment+SAUAT+SAHypercare;
+
     let CIEkickoff = 0;
-    let CIEsolutioning = 0.5*5*8;
-    let CIEdevelopment = devTimeline*0.5*5*8;
-    let CIEUAT = UATTimeline*0.5*5*8;
-    let CIEHypercare = HypercareTimeline*0.5*5*8;
+    let CIEsolutioning = 5*8;
+    let CIEdevelopment = devTimeline*5*8*2;
+    let CIEUAT = UATTimeline*2*5*8;
+    let CIEHypercare = HypercareTimeline*2*5*8;
     let CIETotal = CIEkickoff+CIEsolutioning+CIEdevelopment+CIEUAT+CIEHypercare;
+
     let PRMTotal = 10*totalTimeline;
 
     let TBACost = TBATotal*config.avgCostTBA;
@@ -509,6 +517,7 @@ function calculatePrice() {
     let kickoffTimeline = config.elapsedTimeKickoff;
     let solutionTimeline = (1*complexUCs) + (0.75*simpleUCs) + 3;
     let devTimeline = ((2*complexUCs) + (1*simpleUCs))*0.4 + 3;
+    console.log("devTimeline"+devTimeline);
     let UATTimeline = (1*UAT);
     let HypercareTimeline = (1*Hypercare);
     let totalTimeline = config.elapsedTimeKickoff + solutionTimeline*0.5 + devTimeline + UATTimeline + HypercareTimeline;
@@ -518,24 +527,28 @@ function calculatePrice() {
     let solutionLOE = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) + (0.5*3*5*8);
     let devLOE = devTimeline*5*8;
     let UATLOE = (5*8*UAT);
+
     let TBAkickoff = 0.5*8*5*kickoffTimeline;
     let TBAsolutioning = (0.7*complexUCs*5*8) + (0.6*simpleUCs*5*8) +0.5*3*5*8;
-    let TBAdevelopment = devTimeline*5*8*3;
-    let TBAUAT = UAT*5*8*3;
-    let TBAHypercare = Hypercare*5*8*3;
+    let TBAdevelopment = devTimeline*5*8*0.5;
+    let TBAUAT = UAT*5*8*0.5;
+    let TBAHypercare = Hypercare*5*8;
     let TBATotal = TBAkickoff+TBAsolutioning+TBAdevelopment+TBAUAT+TBAHypercare;
+
     let SAkickoff = 0.5*8*5*kickoffTimeline;
     let SAsolutioning = TBAsolutioning*0.25;
     let SAdevelopment = devTimeline*0.1*5*8;
     let SAUAT = 0;
     let SAHypercare = 0;
     let SATotal = SAkickoff+SAsolutioning+SAdevelopment+SAUAT+SAHypercare;
+
     let CIEkickoff = 0;
-    let CIEsolutioning = 0.5*5*8;
-    let CIEdevelopment = devTimeline*0.5*5*8;
-    let CIEUAT = UATTimeline*0.5*5*8;
-    let CIEHypercare = HypercareTimeline*0.5*5*8;
+    let CIEsolutioning = 3*0.5*5*8;
+    let CIEdevelopment = devTimeline*3*5*8;
+    let CIEUAT = UATTimeline*3*5*8;
+    let CIEHypercare = HypercareTimeline*3*5*8;
     let CIETotal = CIEkickoff+CIEsolutioning+CIEdevelopment+CIEUAT+CIEHypercare;
+
     let PRMTotal = 10*totalTimeline;
 
     let TBACost = TBATotal*config.avgCostTBA;
