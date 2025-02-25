@@ -684,13 +684,17 @@ function calculatePrice() {
     let channelsCoefficient;
 
     if (channelsCount == 1) {
-        channelsCoefficient = 1; 
+        channelsCoefficient = config.onechannelCoefficient; 
         console.log("one channel coefficient");
     } else if (channelsCount == 2) {
-        channelsCoefficient = 1.25; 
+        channelsCoefficient = config.twochannelCoefficient; 
         console.log("two channels coefficient");
-    } else {
-        channelsCoefficient = 1.25;
+    } else if (channelsCount == 3){
+        channelsCoefficient = config.threechannelCoefficient;
+        console.log("three channels coefficient");
+    } else if (channelsCount == 4){
+        channelsCoefficient = config.fourchannelCoefficient;
+        console.log("four channels coefficient");
     }
 
 console.log(channelsCoefficient); // This will print the coefficient value

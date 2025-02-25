@@ -8,7 +8,11 @@ const config = {
     //
     elapsedTimeKickoff: 2,
     contingency: 1.25,
-    sellMargin: 1.4
+    sellMargin: 1.4,
+    onechannelCoefficient: 1,
+    twochannelCoefficient: 1.25,
+    threechannelCoefficient: 1.5,
+    fourchannelCoefficient: 1.75
     /*
     costPerHour: 653,
     devCostPerHour: 553,
